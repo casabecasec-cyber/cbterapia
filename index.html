@@ -7,826 +7,824 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.7">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 10.7px 0.0px; line-height: 18.4px; font: 16.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 16.0px 'Apple Color Emoji'; font-kerning: none}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="es" class="light"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;title&gt;ExecuFlow Pro | Asistente Ejecutivo Guiado&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
-<p class="p1"><span class="s1">        tailwind.config = {</span></p>
-<p class="p1"><span class="s1">            darkMode: 'class',</span></p>
-<p class="p1"><span class="s1">            theme: {</span></p>
-<p class="p1"><span class="s1">                extend: {</span></p>
-<p class="p1"><span class="s1">                    colors: {</span></p>
-<p class="p1"><span class="s1">                        brand: {</span></p>
-<p class="p1"><span class="s1">                            50: '#eef2ff',</span></p>
-<p class="p1"><span class="s1">                            100: '#e0e7ff',</span></p>
-<p class="p1"><span class="s1">                            500: '#6366f1',</span></p>
-<p class="p1"><span class="s1">                            600: '#4f46e5',</span></p>
-<p class="p1"><span class="s1">                            700: '#4338ca',</span></p>
-<p class="p1"><span class="s1">                        }</span></p>
-<p class="p1"><span class="s1">                    }</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;style&gt;</span></p>
-<p class="p1"><span class="s1">        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap');</span></p>
-<p class="p1"><span class="s1">        body { font-family: 'Inter', sans-serif; }</span></p>
-<p class="p1"><span class="s1">        .custom-scroll::-webkit-scrollbar { width: 6px; }</span></p>
-<p class="p1"><span class="s1">        .custom-scroll::-webkit-scrollbar-track { background: transparent; }</span></p>
-<p class="p1"><span class="s1">        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }</span></p>
-<p class="p1"><span class="s1">        .dark .custom-scroll::-webkit-scrollbar-thumb { background: #475569; }</span></p>
-<p class="p1"><span class="s1">    &lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200"&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">    &lt;!-- Navbar --&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700"&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div class="flex items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/30"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;i class="fa-solid fa-bolt-lightning text-lg"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;h1 class="font-bold text-lg leading-tight tracking-tight"&gt;ExecuFlow &lt;span class="text-brand-600 dark:text-brand-400"&gt;Pro&lt;/span&gt;&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Asistente Ejecutivo de Actividades Guiadas&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;div class="flex items-center gap-2 sm:gap-3"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;button onclick="generateSmartDay()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-xl shadow-sm transition flex items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;i class="fa-solid fa-wand-magic-sparkles"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;span class="hidden sm:inline"&gt;Generar Día Inteligente&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;button onclick="startAutopilot()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-brand-500/20 transition flex items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;i class="fa-solid fa-play"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;span&gt;¿Qué hago ahora?&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition" title="Cambiar tema"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;i id="theme-icon" class="fa-solid fa-moon"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;/header&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">    &lt;!-- Main Container --&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6"&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        &lt;!-- Left Column: Protocols &amp; Guided Assistant (5 cols) --&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;div class="lg:col-span-5 space-y-6"&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- Active Focus Panel (Autopilot) --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div id="focus-panel" class="bg-gradient-to-br from-brand-600 to-indigo-800 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex items-center justify-between mb-4"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-sm flex items-center gap-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        MODO PILOTO AUTOMÁTICO</span></p>
-<p class="p1"><span class="s1">                    &lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;span id="focus-category" class="text-xs font-medium text-indigo-200 uppercase tracking-wider"&gt;Listo para iniciar&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;h2 id="focus-title" class="text-xl font-bold mb-2"&gt;Presiona «¿Qué hago ahora?»&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;p id="focus-desc" class="text-sm text-indigo-100 mb-5 leading-relaxed"&gt;</span></p>
-<p class="p1"><span class="s1">                    El sistema seleccionará automáticamente tu actividad más importante y te mostrará las instrucciones paso a paso para que no tengas que pensar qué hacer.</span></p>
-<p class="p1"><span class="s1">                &lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;!-- Step by step checklist inside Focus Panel --&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div id="focus-steps-container" class="hidden bg-black/20 rounded-xl p-4 mb-5 backdrop-blur-sm"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-200 mb-2.5 flex items-center gap-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-list-check"&gt;&lt;/i&gt; Instrucciones paso a paso (haz clic al avanzar):</span></p>
-<p class="p1"><span class="s1">                    &lt;/h4&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div id="focus-steps-list" class="space-y-2 text-sm"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;!-- Timer &amp; Controls --&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/15"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="flex items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="text-3xl font-mono font-bold tracking-wider" id="timer-display"&gt;25:00&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex gap-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;button onclick="toggleTimer()" id="timer-btn" class="px-3 py-1.5 rounded-lg bg-white text-brand-700 font-semibold text-xs hover:bg-indigo-50 transition"&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;i class="fa-solid fa-play mr-1"&gt;&lt;/i&gt; Iniciar</span></p>
-<p class="p1"><span class="s1">                            &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;button onclick="resetTimer()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs transition" title="Reiniciar reloj"&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;i class="fa-solid fa-rotate-right"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;button id="complete-focus-btn" onclick="completeFocusedTask()" class="hidden px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs shadow-lg transition flex items-center gap-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-check-double"&gt;&lt;/i&gt; Terminar y Siguiente</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- Professional Protocols Catalog --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex items-center justify-between mb-3"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;h3 class="font-bold text-base flex items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;i class="fa-solid fa-layer-group text-brand-500"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                            Catálogo de Protocolos Profesionales</span></p>
-<p class="p1"><span class="s1">                        &lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Carga bloques de actividades probadas con un solo clic&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="loadProtocol('deepwork')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;</span><span class="s2">🚀</span><span class="s1"> Mañana Deep Work&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"&gt;3 act.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Priorización MIT, bloque de enfoque profundo y revisión rápida.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="loadProtocol('ejecutivo')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;</span><span class="s2">💼</span><span class="s1"> Gestión y Cierre&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"&gt;3 act.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Inbox Zero, seguimiento de pendientes y planificación de mañana.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="loadProtocol('salud')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;</span><span class="s2">🌿</span><span class="s1"> Bienestar y Energía&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"&gt;3 act.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Pausa ocular/postural, hidratación y desconexión digital.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="loadProtocol('logistica')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;</span><span class="s2">🏠</span><span class="s1"> Logística Personal&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"&gt;3 act.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Finanzas del día, orden de espacio y trámites o compras.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- Add Custom Task with Smart Autocomplete --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex items-center justify-between mb-4"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;h3 class="font-bold text-base flex items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-plus-circle text-brand-500"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                        Crear Actividad Guiada</span></p>
-<p class="p1"><span class="s1">                    &lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button type="button" onclick="autoFillInstructions()" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-wand-sparkles"&gt;&lt;/i&gt; Autocompletar Pasos</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;form id="task-form" onsubmit="addCustomTask(event)" class="space-y-3"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;input type="text" id="task-title" required placeholder="Ej: Preparar presentación de resultados..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;div class="grid grid-cols-3 gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;select id="task-category" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Trabajo"&gt;</span><span class="s2">💼</span><span class="s1"> Trabajo&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Salud"&gt;</span><span class="s2">🌿</span><span class="s1"> Salud&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Estudio"&gt;</span><span class="s2">📚</span><span class="s1"> Estudio&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Logística"&gt;</span><span class="s2">🏠</span><span class="s1"> Logística&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/select&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;select id="task-priority" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Alta"&gt;</span><span class="s2">🔥</span><span class="s1"> Prioridad Alta&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Media" selected&gt;</span><span class="s2">⚡</span><span class="s1"> Prioridad Media&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="Baja"&gt;</span><span class="s2">🌱</span><span class="s1"> Prioridad Baja&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/select&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;select id="task-duration" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="15"&gt;</span><span class="s2">⏱️</span><span class="s1"> 15 min&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="25" selected&gt;</span><span class="s2">⏱️</span><span class="s1"> 25 min&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="45"&gt;</span><span class="s2">⏱️</span><span class="s1"> 45 min&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;option value="60"&gt;</span><span class="s2">⏱️</span><span class="s1"> 60 min&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/select&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;textarea id="task-instructions" rows="2" placeholder="Instrucción experta (o pulsa 'Autocompletar Pasos' arriba)..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;&lt;/textarea&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;input type="text" id="task-steps" placeholder="Pasos separados por coma (Ej: Definir objetivo, Redactar puntos, Revisar)" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                    &lt;button type="submit" class="w-full py-2.5 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-xs rounded-xl transition"&gt;</span></p>
-<p class="p1"><span class="s1">                        Agregar a mi Ruta del Día</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/form&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        &lt;!-- Right Column: Metrics, Filters &amp; Guided Task List (7 cols) --&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;div class="lg:col-span-7 space-y-6"&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- KPIs &amp; Progress Bar --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="grid grid-cols-3 gap-4 mb-4"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Pendientes&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p id="stat-pending" class="text-2xl font-bold text-slate-800 dark:text-white"&gt;0&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Completadas&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p id="stat-completed" class="text-2xl font-bold text-emerald-600 dark:text-emerald-400"&gt;0&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Tiempo Estimado&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p id="stat-time" class="text-2xl font-bold text-brand-600 dark:text-brand-400"&gt;0m&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="flex justify-between text-xs font-medium mb-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;span class="text-slate-600 dark:text-slate-300"&gt;Progreso de Ejecución Diaria&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;span id="progress-text" class="text-brand-600 dark:text-brand-400 font-bold"&gt;0%&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="w-full h-2.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div id="progress-bar" class="h-full bg-brand-600 transition-all duration-500 rounded-full" style="width: 0%"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- Search &amp; Filters --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div class="flex flex-col sm:flex-row gap-3 items-center justify-between"&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 w-full sm:w-auto"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="setFilter('all')" id="filter-all" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition"&gt;Todas&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="setFilter('pending')" id="filter-pending" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition"&gt;Por hacer&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="setFilter('completed')" id="filter-completed" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition"&gt;Hechas&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                &lt;div class="flex items-center gap-2 w-full sm:w-auto"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="relative flex-1 sm:w-56"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;input type="text" id="search-input" oninput="renderTasks()" placeholder="Buscar actividad..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;button onclick="clearCompleted()" class="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-500 hover:text-rose-600 transition" title="Limpiar completadas"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-trash-can"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            &lt;!-- Guided Tasks List --&gt;</span></p>
-<p class="p1"><span class="s1">            &lt;div id="tasks-list" class="space-y-3 custom-scroll max-h-[600px] overflow-y-auto pr-1"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;/main&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">    &lt;!-- Toast Notification --&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">        &lt;span id="toast-msg"&gt;Acción realizada&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
-<p class="p1"><span class="s1">        // Pre-configured Professional Protocols</span></p>
-<p class="p1"><span class="s1">        const PROTOCOLS = {</span></p>
-<p class="p1"><span class="s1">            deepwork: [</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Definición de la Tarea Más Importante (MIT)",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Alta",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Antes de abrir el correo o redes, define el único entregable que hará que tu día valga la pena.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Cerrar pestañas de correo y mensajería", "Escribir el objetivo exacto en una frase", "Preparar solo los archivos o herramientas necesarios"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Bloque de Enfoque Profundo (Sin Interrupciones)",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Alta",</span></p>
-<p class="p1"><span class="s1">                    duration: 45,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Pon el teléfono en modo avión o en otra habitación. Trabaja de corrido en tu tarea principal sin cambiar de ventana.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Poner celular en silencio y lejos de la vista", "Avanzar el primer borrador o estructura durante 25 min", "Completar detalles críticos y guardar avances"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Auditoría Rápida de Avance",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Media",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Evalúa lo logrado en el bloque anterior y deja anotado el siguiente paso inmediato.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Revisar calidad de lo producido", "Anotar pendientes derivados", "Estirar brazos y cuello durante 2 minutos"]</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            ],</span></p>
-<p class="p1"><span class="s1">            ejecutivo: [</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Procesamiento Rápido de Bandeja (Inbox Zero)",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Media",</span></p>
-<p class="p1"><span class="s1">                    duration: 25,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Aplica la regla de los 2 minutos: si se responde en menos de 2 min, hazlo ahora; si no, agéndalo o archívalo.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Archivar boletines y notificaciones automáticas", "Responder mensajes cortos urgentes (&lt; 2 min)", "Marcar correos largos para bloque de tarde"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Seguimiento de Entregables y Equipo",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Alta",</span></p>
-<p class="p1"><span class="s1">                    duration: 20,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Revisa qué respuestas o bloqueos necesitas destrabar con clientes o colaboradores hoy.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Revisar lista de temas esperando respuesta", "Enviar máximo 3 mensajes claros de seguimiento", "Actualizar estado de proyectos activos"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Ritual de Cierre y Planificación de Mañana",</span></p>
-<p class="p1"><span class="s1">                    category: "Trabajo",</span></p>
-<p class="p1"><span class="s1">                    priority: "Baja",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "No termines el día sin dejar listas las 3 prioridades de mañana para arrancar sin fricción.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Revisar agenda de mañana por compromisos", "Elegir las 3 actividades clave del día siguiente", "Ordenar escritorio físico y cerrar pestañas"]</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            ],</span></p>
-<p class="p1"><span class="s1">            salud: [</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Pausa Activa de Descompresión Postural y Visual",</span></p>
-<p class="p1"><span class="s1">                    category: "Salud",</span></p>
-<p class="p1"><span class="s1">                    priority: "Alta",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Aléjate de cualquier pantalla para relajar la vista y activar la circulación sanguínea.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Mirar un punto lejano por la ventana durante 60 segundos", "Realizar 10 rotaciones de hombros y estiramiento cervical", "Caminar 5 minutos lejos del escritorio"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Protocolo de Hidratación y Recarga de Energía",</span></p>
-<p class="p1"><span class="s1">                    category: "Salud",</span></p>
-<p class="p1"><span class="s1">                    priority: "Media",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "La fatiga mental suele ser deshidratación leve. Recarga agua y consume un snack ligero.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Beber un vaso grande de agua pura (300-500 ml)", "Comer fruta o frutos secos (evitar azúcares refinados)", "Hacer 5 respiraciones profundas (inhalar 4s, exhalar 6s)"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Alimentación Consciente sin Pantallas",</span></p>
-<p class="p1"><span class="s1">                    category: "Salud",</span></p>
-<p class="p1"><span class="s1">                    priority: "Media",</span></p>
-<p class="p1"><span class="s1">                    duration: 45,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Dedica tu hora de comida a nutrirte con calma para evitar pesadez en la tarde.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Dejar el teléfono fuera de la mesa", "Priorizar vegetales y proteína de calidad", "Dar una caminata breve de 10 min al terminar"]</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            ],</span></p>
-<p class="p1"><span class="s1">            logistica: [</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Control Exprés de Finanzas y Pagos",</span></p>
-<p class="p1"><span class="s1">                    category: "Logística",</span></p>
-<p class="p1"><span class="s1">                    priority: "Alta",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Mantén tus cuentas al día revisando movimientos recientes y servicios por vencer.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Verificar saldo y últimos cargos bancarios", "Pagar facturas o servicios pendientes de la semana", "Registrar gastos importantes del día"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Orden Rápido del Entorno (Regla de 15 Minutos)",</span></p>
-<p class="p1"><span class="s1">                    category: "Logística",</span></p>
-<p class="p1"><span class="s1">                    priority: "Baja",</span></p>
-<p class="p1"><span class="s1">                    duration: 15,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Como es adentro es afuera: un espacio despejado reduce el ruido mental inmediatamente.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Retirar tazas, vasos o papeles de la mesa de trabajo", "Organizar cables y cargadores", "Ventilar la habitación abriendo ventanas 10 minutos"]</span></p>
-<p class="p1"><span class="s1">                },</span></p>
-<p class="p1"><span class="s1">                {</span></p>
-<p class="p1"><span class="s1">                    title: "Gestión de Compras, Pedidos y Vehículo/Hogar",</span></p>
-<p class="p1"><span class="s1">                    category: "Logística",</span></p>
-<p class="p1"><span class="s1">                    priority: "Media",</span></p>
-<p class="p1"><span class="s1">                    duration: 25,</span></p>
-<p class="p1"><span class="s1">                    instructions: "Agrupa tus diligencias domésticas en un solo bloque para no interrumpir tu mañana.",</span></p>
-<p class="p1"><span class="s1">                    steps: ["Revisar faltantes de despensa o comida de la semana", "Verificar citas, mantenimientos o trámites pendientes", "Realizar pedidos necesarios en una sola tanda"]</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            ]</span></p>
-<p class="p1"><span class="s1">        };</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        const DEFAULT_TEMPLATES = {</span></p>
-<p class="p1"><span class="s1">            "Trabajo": {</span></p>
-<p class="p1"><span class="s1">                instructions: "Divide esta actividad en un entregable claro. Elimina distracciones durante el bloque y enfócate en terminar una primera versión funcional.",</span></p>
-<p class="p1"><span class="s1">                steps: ["Definir el resultado exacto esperado", "Ejecutar el bloque principal sin mirar el celular", "Revisar y dar por concluido el entregable"]</span></p>
-<p class="p1"><span class="s1">            },</span></p>
-<p class="p1"><span class="s1">            "Salud": {</span></p>
-<p class="p1"><span class="s1">                instructions: "Prioriza tu energía física. Desconéctate de las pantallas y realiza la actividad con atención plena en tu respiración y postura.",</span></p>
-<p class="p1"><span class="s1">                steps: ["Preparar el espacio o hidratación", "Realizar la actividad de bienestar sin prisa", "Estirar y retomar el día renovado"]</span></p>
-<p class="p1"><span class="s1">            },</span></p>
-<p class="p1"><span class="s1">            "Estudio": {</span></p>
-<p class="p1"><span class="s1">                instructions: "Usa aprendizaje activo: no solo leas o mires, toma notas con tus propias palabras y resume las ideas clave.",</span></p>
-<p class="p1"><span class="s1">                steps: ["Leer o revisar el material principal", "Anotar 3 conceptos o aprendizajes clave", "Aplicar o resumir lo aprendido en 5 minutos"]</span></p>
-<p class="p1"><span class="s1">            },</span></p>
-<p class="p1"><span class="s1">            "Logística": {</span></p>
-<p class="p1"><span class="s1">                instructions: "Resuelve este pendiente de principio a fin ahora mismo para liberarlo de tu memoria mental.",</span></p>
-<p class="p1"><span class="s1">                steps: ["Reunir datos, documentos o contactos necesarios", "Ejecutar el trámite, pago o gestión", "Guardar comprobante o confirmar cierre"]</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">        };</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        let tasks = [];</span></p>
-<p class="p1"><span class="s1">        let currentFilter = 'all';</span></p>
-<p class="p1"><span class="s1">        let activeTaskId = null;</span></p>
-<p class="p1"><span class="s1">        let timerInterval = null;</span></p>
-<p class="p1"><span class="s1">        let timeLeft = 25 * 60;</span></p>
-<p class="p1"><span class="s1">        let isTimerRunning = false;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Initialization</span></p>
-<p class="p1"><span class="s1">        document.addEventListener('DOMContentLoaded', () =&gt; {</span></p>
-<p class="p1"><span class="s1">            initTheme();</span></p>
-<p class="p1"><span class="s1">            const saved = localStorage.getItem('execuflow_pro_tasks');</span></p>
-<p class="p1"><span class="s1">            if (saved) {</span></p>
-<p class="p1"><span class="s1">                tasks = JSON.parse(saved);</span></p>
-<p class="p1"><span class="s1">            } else {</span></p>
-<p class="p1"><span class="s1">                generateSmartDay(true);</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">        });</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function saveTasks() {</span></p>
-<p class="p1"><span class="s1">            localStorage.setItem('execuflow_pro_tasks', JSON.stringify(tasks));</span></p>
-<p class="p1"><span class="s1">            updateStats();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Generate full balanced day</span></p>
-<p class="p1"><span class="s1">        function generateSmartDay(silent = false) {</span></p>
-<p class="p1"><span class="s1">            const smartSelection = [</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.deepwork[0],</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.deepwork[1],</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.salud[0],</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.ejecutivo[0],</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.logistica[1],</span></p>
-<p class="p1"><span class="s1">                PROTOCOLS.ejecutivo[2]</span></p>
-<p class="p1"><span class="s1">            ];</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            smartSelection.forEach(item =&gt; {</span></p>
-<p class="p1"><span class="s1">                const exists = tasks.some(t =&gt; t.title === item.title &amp;&amp; !t.completed);</span></p>
-<p class="p1"><span class="s1">                if (!exists) {</span></p>
-<p class="p1"><span class="s1">                    tasks.push({</span></p>
-<p class="p1"><span class="s1">                        id: Date.now() + Math.random(),</span></p>
-<p class="p1"><span class="s1">                        title: item.title,</span></p>
-<p class="p1"><span class="s1">                        category: item.category,</span></p>
-<p class="p1"><span class="s1">                        priority: item.priority,</span></p>
-<p class="p1"><span class="s1">                        duration: item.duration,</span></p>
-<p class="p1"><span class="s1">                        instructions: item.instructions,</span></p>
-<p class="p1"><span class="s1">                        steps: item.steps.map(s =&gt; ({ text: s, done: false })),</span></p>
-<p class="p1"><span class="s1">                        completed: false</span></p>
-<p class="p1"><span class="s1">                    });</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            });</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">            if (!silent) showToast("</span><span class="s2">✨</span><span class="s1"> Día Inteligente generado con instrucciones paso a paso");</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function loadProtocol(key) {</span></p>
-<p class="p1"><span class="s1">            const list = PROTOCOLS[key];</span></p>
-<p class="p1"><span class="s1">            if (!list) return;</span></p>
-<p class="p1"><span class="s1">            list.forEach(item =&gt; {</span></p>
-<p class="p1"><span class="s1">                tasks.unshift({</span></p>
-<p class="p1"><span class="s1">                    id: Date.now() + Math.random(),</span></p>
-<p class="p1"><span class="s1">                    title: item.title,</span></p>
-<p class="p1"><span class="s1">                    category: item.category,</span></p>
-<p class="p1"><span class="s1">                    priority: item.priority,</span></p>
-<p class="p1"><span class="s1">                    duration: item.duration,</span></p>
-<p class="p1"><span class="s1">                    instructions: item.instructions,</span></p>
-<p class="p1"><span class="s1">                    steps: item.steps.map(s =&gt; ({ text: s, done: false })),</span></p>
-<p class="p1"><span class="s1">                    completed: false</span></p>
-<p class="p1"><span class="s1">                });</span></p>
-<p class="p1"><span class="s1">            });</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">            showToast("</span><span class="s2">📦</span><span class="s1"> Protocolo profesional cargado en tu lista");</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function autoFillInstructions() {</span></p>
-<p class="p1"><span class="s1">            const cat = document.getElementById('task-category').value;</span></p>
-<p class="p1"><span class="s1">            const title = document.getElementById('task-title').value.trim();</span></p>
-<p class="p1"><span class="s1">            const tpl = DEFAULT_TEMPLATES[cat] || DEFAULT_TEMPLATES["Trabajo"];</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            document.getElementById('task-instructions').value = title</span></p>
-<p class="p1"><span class="s1">                ? `Para «${title}»: ${tpl.instructions}`</span></p>
-<p class="p1"><span class="s1">                : tpl.instructions;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('task-steps').value = tpl.steps.join(', ');</span></p>
-<p class="p1"><span class="s1">            showToast("</span><span class="s2">🪄</span><span class="s1"> Instrucciones y pasos generados automáticamente");</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function addCustomTask(e) {</span></p>
-<p class="p1"><span class="s1">            e.preventDefault();</span></p>
-<p class="p1"><span class="s1">            const title = document.getElementById('task-title').value.trim();</span></p>
-<p class="p1"><span class="s1">            const category = document.getElementById('task-category').value;</span></p>
-<p class="p1"><span class="s1">            const priority = document.getElementById('task-priority').value;</span></p>
-<p class="p1"><span class="s1">            const duration = parseInt(document.getElementById('task-duration').value, 10);</span></p>
-<p class="p1"><span class="s1">            let instructions = document.getElementById('task-instructions').value.trim();</span></p>
-<p class="p1"><span class="s1">            let stepsRaw = document.getElementById('task-steps').value.trim();</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            const tpl = DEFAULT_TEMPLATES[category];</span></p>
-<p class="p1"><span class="s1">            if (!instructions) instructions = tpl.instructions;</span></p>
-<p class="p1"><span class="s1">            const stepsArray = stepsRaw</span></p>
-<p class="p1"><span class="s1">                ? stepsRaw.split(',').map(s =&gt; s.trim()).filter(Boolean)</span></p>
-<p class="p1"><span class="s1">                : tpl.steps;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            const newTask = {</span></p>
-<p class="p1"><span class="s1">                id: Date.now(),</span></p>
-<p class="p1"><span class="s1">                title,</span></p>
-<p class="p1"><span class="s1">                category,</span></p>
-<p class="p1"><span class="s1">                priority,</span></p>
-<p class="p1"><span class="s1">                duration,</span></p>
-<p class="p1"><span class="s1">                instructions,</span></p>
-<p class="p1"><span class="s1">                steps: stepsArray.map(s =&gt; ({ text: s, done: false })),</span></p>
-<p class="p1"><span class="s1">                completed: false</span></p>
-<p class="p1"><span class="s1">            };</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            tasks.unshift(newTask);</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">            e.target.reset();</span></p>
-<p class="p1"><span class="s1">            showToast("</span><span class="s2">✅</span><span class="s1"> Actividad agregada con su guía de ejecución");</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Autopilot / Focus Panel</span></p>
-<p class="p1"><span class="s1">        function startAutopilot(specificId = null) {</span></p>
-<p class="p1"><span class="s1">            const priorityOrder = { 'Alta': 1, 'Media': 2, 'Baja': 3 };</span></p>
-<p class="p1"><span class="s1">            let targetTask = null;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            if (specificId) {</span></p>
-<p class="p1"><span class="s1">                targetTask = tasks.find(t =&gt; t.id === specificId);</span></p>
-<p class="p1"><span class="s1">            } else {</span></p>
-<p class="p1"><span class="s1">                const pending = tasks.filter(t =&gt; !t.completed).sort((a, b) =&gt; priorityOrder[a.priority] - priorityOrder[b.priority]);</span></p>
-<p class="p1"><span class="s1">                targetTask = pending[0];</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            if (!targetTask) {</span></p>
-<p class="p1"><span class="s1">                showToast("</span><span class="s2">🎉</span><span class="s1"> ¡No tienes actividades pendientes! Genera un Día Inteligente.");</span></p>
-<p class="p1"><span class="s1">                return;</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            activeTaskId = targetTask.id;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('focus-category').textContent = `${targetTask.category} • PRIORIDAD ${targetTask.priority.toUpperCase()}`;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('focus-title').textContent = targetTask.title;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('focus-desc').textContent = targetTask.instructions;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('complete-focus-btn').classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            renderFocusSteps(targetTask);</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            // Configure timer</span></p>
-<p class="p1"><span class="s1">            pauseTimer();</span></p>
-<p class="p1"><span class="s1">            timeLeft = (targetTask.duration || 25) * 60;</span></p>
-<p class="p1"><span class="s1">            updateTimerDisplay();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">            window.scrollTo({ top: 0, behavior: 'smooth' });</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function renderFocusSteps(task) {</span></p>
-<p class="p1"><span class="s1">            const container = document.getElementById('focus-steps-container');</span></p>
-<p class="p1"><span class="s1">            const listEl = document.getElementById('focus-steps-list');</span></p>
-<p class="p1"><span class="s1">            if (!task.steps || task.steps.length === 0) {</span></p>
-<p class="p1"><span class="s1">                container.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1">                return;</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">            container.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1">            listEl.innerHTML = task.steps.map((step, idx) =&gt; `</span></p>
-<p class="p1"><span class="s1">                &lt;label class="flex items-start gap-2.5 cursor-pointer p-1.5 rounded-lg hover:bg-white/10 transition"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;input type="checkbox" ${step.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${idx})" class="mt-1 rounded text-emerald-500 focus:ring-0"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;span class="${step.done ? 'line-through text-indigo-200/60' : 'text-white'}"&gt;${step.text}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/label&gt;</span></p>
-<p class="p1"><span class="s1">            `).join('');</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function toggleSubstep(taskId, stepIdx) {</span></p>
-<p class="p1"><span class="s1">            const task = tasks.find(t =&gt; t.id === taskId);</span></p>
-<p class="p1"><span class="s1">            if (!task) return;</span></p>
-<p class="p1"><span class="s1">            task.steps[stepIdx].done = !task.steps[stepIdx].done;</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            if (activeTaskId === taskId) renderFocusSteps(task);</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function completeFocusedTask() {</span></p>
-<p class="p1"><span class="s1">            if (!activeTaskId) return;</span></p>
-<p class="p1"><span class="s1">            const task = tasks.find(t =&gt; t.id === activeTaskId);</span></p>
-<p class="p1"><span class="s1">            if (task) {</span></p>
-<p class="p1"><span class="s1">                task.completed = true;</span></p>
-<p class="p1"><span class="s1">                task.steps.forEach(s =&gt; s.done = true);</span></p>
-<p class="p1"><span class="s1">                saveTasks();</span></p>
-<p class="p1"><span class="s1">                showToast("</span><span class="s2">🏆</span><span class="s1"> ¡Excelente! Actividad completada.");</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">            const remaining = tasks.filter(t =&gt; !t.completed);</span></p>
-<p class="p1"><span class="s1">            if (remaining.length &gt; 0) {</span></p>
-<p class="p1"><span class="s1">                startAutopilot();</span></p>
-<p class="p1"><span class="s1">            } else {</span></p>
-<p class="p1"><span class="s1">                activeTaskId = null;</span></p>
-<p class="p1"><span class="s1">                pauseTimer();</span></p>
-<p class="p1"><span class="s1">                document.getElementById('focus-title').textContent = "</span><span class="s2">🎉</span><span class="s1"> ¡Día Completado con Éxito!";</span></p>
-<p class="p1"><span class="s1">                document.getElementById('focus-desc').textContent = "Has terminado todas las actividades programadas. Descansa o carga un nuevo protocolo.";</span></p>
-<p class="p1"><span class="s1">                document.getElementById('focus-steps-container').classList.add('hidden');</span></p>
-<p class="p1"><span class="s1">                document.getElementById('complete-focus-btn').classList.add('hidden');</span></p>
-<p class="p1"><span class="s1">                renderTasks();</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Timer Functions</span></p>
-<p class="p1"><span class="s1">        function updateTimerDisplay() {</span></p>
-<p class="p1"><span class="s1">            const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');</span></p>
-<p class="p1"><span class="s1">            const s = String(timeLeft % 60).padStart(2, '0');</span></p>
-<p class="p1"><span class="s1">            document.getElementById('timer-display').textContent = `${m}:${s}`;</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function toggleTimer() {</span></p>
-<p class="p1"><span class="s1">            if (isTimerRunning) {</span></p>
-<p class="p1"><span class="s1">                pauseTimer();</span></p>
-<p class="p1"><span class="s1">            } else {</span></p>
-<p class="p1"><span class="s1">                isTimerRunning = true;</span></p>
-<p class="p1"><span class="s1">                document.getElementById('timer-btn').innerHTML = `&lt;i class="fa-solid fa-pause mr-1"&gt;&lt;/i&gt; Pausar`;</span></p>
-<p class="p1"><span class="s1">                timerInterval = setInterval(() =&gt; {</span></p>
-<p class="p1"><span class="s1">                    if (timeLeft &gt; 0) {</span></p>
-<p class="p1"><span class="s1">                        timeLeft--;</span></p>
-<p class="p1"><span class="s1">                        updateTimerDisplay();</span></p>
-<p class="p1"><span class="s1">                    } else {</span></p>
-<p class="p1"><span class="s1">                        pauseTimer();</span></p>
-<p class="p1"><span class="s1">                        playBeep();</span></p>
-<p class="p1"><span class="s1">                        showToast("</span><span class="s2">⏰</span><span class="s1"> ¡Tiempo del bloque terminado!");</span></p>
-<p class="p1"><span class="s1">                    }</span></p>
-<p class="p1"><span class="s1">                }, 1000);</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function pauseTimer() {</span></p>
-<p class="p1"><span class="s1">            isTimerRunning = false;</span></p>
-<p class="p1"><span class="s1">            clearInterval(timerInterval);</span></p>
-<p class="p1"><span class="s1">            const btn = document.getElementById('timer-btn');</span></p>
-<p class="p1"><span class="s1">            if (btn) btn.innerHTML = `&lt;i class="fa-solid fa-play mr-1"&gt;&lt;/i&gt; Iniciar`;</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function resetTimer() {</span></p>
-<p class="p1"><span class="s1">            pauseTimer();</span></p>
-<p class="p1"><span class="s1">            const task = tasks.find(t =&gt; t.id === activeTaskId);</span></p>
-<p class="p1"><span class="s1">            timeLeft = ((task &amp;&amp; task.duration) ? task.duration : 25) * 60;</span></p>
-<p class="p1"><span class="s1">            updateTimerDisplay();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function playBeep() {</span></p>
-<p class="p1"><span class="s1">            try {</span></p>
-<p class="p1"><span class="s1">                const ctx = new (window.AudioContext || window.webkitAudioContext)();</span></p>
-<p class="p1"><span class="s1">                const osc = ctx.createOscillator();</span></p>
-<p class="p1"><span class="s1">                const gain = ctx.createGain();</span></p>
-<p class="p1"><span class="s1">                osc.type = 'sine';</span></p>
-<p class="p1"><span class="s1">                osc.frequency.setValueAtTime(660, ctx.currentTime);</span></p>
-<p class="p1"><span class="s1">                gain.gain.setValueAtTime(0.15, ctx.currentTime);</span></p>
-<p class="p1"><span class="s1">                osc.connect(gain);</span></p>
-<p class="p1"><span class="s1">                gain.connect(ctx.destination);</span></p>
-<p class="p1"><span class="s1">                osc.start();</span></p>
-<p class="p1"><span class="s1">                osc.stop(ctx.currentTime + 0.4);</span></p>
-<p class="p1"><span class="s1">            } catch (e) {}</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Task Operations &amp; Rendering</span></p>
-<p class="p1"><span class="s1">        function toggleTaskStatus(id) {</span></p>
-<p class="p1"><span class="s1">            const task = tasks.find(t =&gt; t.id === id);</span></p>
-<p class="p1"><span class="s1">            if (!task) return;</span></p>
-<p class="p1"><span class="s1">            task.completed = !task.completed;</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function deleteTask(id) {</span></p>
-<p class="p1"><span class="s1">            tasks = tasks.filter(t =&gt; t.id !== id);</span></p>
-<p class="p1"><span class="s1">            if (activeTaskId === id) activeTaskId = null;</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function clearCompleted() {</span></p>
-<p class="p1"><span class="s1">            tasks = tasks.filter(t =&gt; !t.completed);</span></p>
-<p class="p1"><span class="s1">            saveTasks();</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">            showToast("</span><span class="s2">🧹</span><span class="s1"> Actividades completadas eliminadas");</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function setFilter(f) {</span></p>
-<p class="p1"><span class="s1">            currentFilter = f;</span></p>
-<p class="p1"><span class="s1">            ['all', 'pending', 'completed'].forEach(k =&gt; {</span></p>
-<p class="p1"><span class="s1">                const btn = document.getElementById(`filter-${k}`);</span></p>
-<p class="p1"><span class="s1">                if (k === f) {</span></p>
-<p class="p1"><span class="s1">                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition";</span></p>
-<p class="p1"><span class="s1">                } else {</span></p>
-<p class="p1"><span class="s1">                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition";</span></p>
-<p class="p1"><span class="s1">                }</span></p>
-<p class="p1"><span class="s1">            });</span></p>
-<p class="p1"><span class="s1">            renderTasks();</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function updateStats() {</span></p>
-<p class="p1"><span class="s1">            const total = tasks.length;</span></p>
-<p class="p1"><span class="s1">            const completed = tasks.filter(t =&gt; t.completed).length;</span></p>
-<p class="p1"><span class="s1">            const pending = total - completed;</span></p>
-<p class="p1"><span class="s1">            const totalMinutes = tasks.filter(t =&gt; !t.completed).reduce((acc, t) =&gt; acc + (t.duration || 25), 0);</span></p>
-<p class="p1"><span class="s1">            const pct = total === 0 ? 0 : Math.round((completed / total) * 100);</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            document.getElementById('stat-pending').textContent = pending;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('stat-completed').textContent = completed;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('stat-time').textContent = `${totalMinutes}m`;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('progress-text').textContent = `${pct}%`;</span></p>
-<p class="p1"><span class="s1">            document.getElementById('progress-bar').style.width = `${pct}%`;</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function renderTasks() {</span></p>
-<p class="p1"><span class="s1">            updateStats();</span></p>
-<p class="p1"><span class="s1">            const query = document.getElementById('search-input').value.toLowerCase();</span></p>
-<p class="p1"><span class="s1">            const container = document.getElementById('tasks-list');</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            const filtered = tasks.filter(t =&gt; {</span></p>
-<p class="p1"><span class="s1">                if (currentFilter === 'pending' &amp;&amp; t.completed) return false;</span></p>
-<p class="p1"><span class="s1">                if (currentFilter === 'completed' &amp;&amp; !t.completed) return false;</span></p>
-<p class="p1"><span class="s1">                if (query &amp;&amp; !t.title.toLowerCase().includes(query) &amp;&amp; !t.category.toLowerCase().includes(query)) return false;</span></p>
-<p class="p1"><span class="s1">                return true;</span></p>
-<p class="p1"><span class="s1">            });</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            if (filtered.length === 0) {</span></p>
-<p class="p1"><span class="s1">                container.innerHTML = `</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center border border-dashed border-slate-300 dark:border-slate-700"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;i class="fa-solid fa-clipboard-check text-3xl text-slate-400 mb-2"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="font-semibold text-sm"&gt;No hay actividades en esta vista&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;p class="text-xs text-slate-500 mt-1"&gt;Usa el botón «Generar Día Inteligente» arriba para armar tu rutina.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                `;</span></p>
-<p class="p1"><span class="s1">                return;</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            const priorityBadge = {</span></p>
-<p class="p1"><span class="s1">                'Alta': 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',</span></p>
-<p class="p1"><span class="s1">                'Media': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',</span></p>
-<p class="p1"><span class="s1">                'Baja': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'</span></p>
-<p class="p1"><span class="s1">            };</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">            container.innerHTML = filtered.map(task =&gt; {</span></p>
-<p class="p1"><span class="s1">                const isFocused = task.id === activeTaskId;</span></p>
-<p class="p1"><span class="s1">                const stepsDone = task.steps ? task.steps.filter(s =&gt; s.done).length : 0;</span></p>
-<p class="p1"><span class="s1">                const totalSteps = task.steps ? task.steps.length : 0;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                return `</span></p>
-<p class="p1"><span class="s1">                &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border ${isFocused ? 'border-2 border-brand-500 ring-2 ring-brand-500/20' : 'border-slate-200 dark:border-slate-700'} shadow-sm transition"&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;div class="flex items-start justify-between gap-3"&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-start gap-3 flex-1"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus(${task.id})" class="mt-1 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 cursor-pointer"&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;div class="flex-1"&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;div class="flex flex-wrap items-center gap-2 mb-1"&gt;</span></p>
-<p class="p1"><span class="s1">                                    &lt;span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"&gt;${task.category}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                                    &lt;span class="text-[11px] font-semibold px-2 py-0.5 rounded-md ${priorityBadge[task.priority] || ''}"&gt;${task.priority}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                                    &lt;span class="text-[11px] text-slate-400"&gt;&lt;i class="fa-regular fa-clock mr-1"&gt;&lt;/i&gt;${task.duration} min&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                                    ${totalSteps &gt; 0 ? `&lt;span class="text-[11px] text-brand-600 dark:text-brand-400 font-medium"&gt;&lt;i class="fa-solid fa-list-check mr-1"&gt;&lt;/i&gt;${stepsDone}/${totalSteps} pasos&lt;/span&gt;` : ''}</span></p>
-<p class="p1"><span class="s1">                                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;h4 class="font-bold text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-100'}"&gt;${task.title}&lt;/h4&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed"&gt;${task.instructions}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                                ${task.steps &amp;&amp; task.steps.length &gt; 0 ? `</span></p>
-<p class="p1"><span class="s1">                                &lt;div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 space-y-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                                    ${task.steps.map((st, sIdx) =&gt; `</span></p>
-<p class="p1"><span class="s1">                                        &lt;label class="flex items-center gap-2 text-xs cursor-pointer text-slate-600 dark:text-slate-300 hover:text-brand-600"&gt;</span></p>
-<p class="p1"><span class="s1">                                            &lt;input type="checkbox" ${st.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${sIdx})" class="rounded text-brand-600 focus:ring-0 w-3.5 h-3.5"&gt;</span></p>
-<p class="p1"><span class="s1">                                            &lt;span class="${st.done ? 'line-through text-slate-400' : ''}"&gt;${st.text}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1">                                        &lt;/label&gt;</span></p>
-<p class="p1"><span class="s1">                                    `).join('')}</span></p>
-<p class="p1"><span class="s1">                                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                                ` : ''}</span></p>
-<p class="p1"><span class="s1">                            &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">                        &lt;div class="flex items-center gap-1.5"&gt;</span></p>
-<p class="p1"><span class="s1">                            ${!task.completed ? `</span></p>
-<p class="p1"><span class="s1">                            &lt;button onclick="startAutopilot(${task.id})" class="px-2.5 py-1.5 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white text-xs font-semibold transition flex items-center gap-1" title="Enfocarme en esta actividad"&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;i class="fa-solid fa-crosshairs"&gt;&lt;/i&gt; Guiarme</span></p>
-<p class="p1"><span class="s1">                            &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                            ` : ''}</span></p>
-<p class="p1"><span class="s1">                            &lt;button onclick="deleteTask(${task.id})" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-slate-700 transition" title="Eliminar"&gt;</span></p>
-<p class="p1"><span class="s1">                                &lt;i class="fa-solid fa-xmark"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1">                            &lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">                        &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                    &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">                `;</span></p>
-<p class="p1"><span class="s1">            }).join('');</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        // Theme Toggle</span></p>
-<p class="p1"><span class="s1">        function initTheme() {</span></p>
-<p class="p1"><span class="s1">            if (localStorage.getItem('execuflow_theme') === 'dark') {</span></p>
-<p class="p1"><span class="s1">                document.documentElement.classList.add('dark');</span></p>
-<p class="p1"><span class="s1">                document.getElementById('theme-icon').className = 'fa-solid fa-sun';</span></p>
-<p class="p1"><span class="s1">            }</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function toggleTheme() {</span></p>
-<p class="p1"><span class="s1">            const html = document.documentElement;</span></p>
-<p class="p1"><span class="s1">            const isDark = html.classList.toggle('dark');</span></p>
-<p class="p1"><span class="s1">            localStorage.setItem('execuflow_theme', isDark ? 'dark' : 'light');</span></p>
-<p class="p1"><span class="s1">            document.getElementById('theme-icon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1"> </span></p>
-<p class="p1"><span class="s1">        function showToast(msg) {</span></p>
-<p class="p1"><span class="s1">            const toast = document.getElementById('toast');</span></p>
-<p class="p1"><span class="s1">            document.getElementById('toast-msg').textContent = msg;</span></p>
-<p class="p1"><span class="s1">            toast.classList.remove('translate-y-20', 'opacity-0');</span></p>
-<p class="p1"><span class="s1">            setTimeout(() =&gt; {</span></p>
-<p class="p1"><span class="s1">                toast.classList.add('translate-y-20', 'opacity-0');</span></p>
-<p class="p1"><span class="s1">            }, 3000);</span></p>
-<p class="p1"><span class="s1">        }</span></p>
-<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es" class="light"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">    &lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">    &lt;title&gt;ExecuFlow Pro | Asistente Ejecutivo Guiado&lt;/title&gt;</p>
+<p class="p1">    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1">    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"&gt;</p>
+<p class="p1">    &lt;script&gt;</p>
+<p class="p1">        tailwind.config = {</p>
+<p class="p1">            darkMode: 'class',</p>
+<p class="p1">            theme: {</p>
+<p class="p1">                extend: {</p>
+<p class="p1">                    colors: {</p>
+<p class="p1">                        brand: {</p>
+<p class="p1">                            50: '#eef2ff',</p>
+<p class="p1">                            100: '#e0e7ff',</p>
+<p class="p1">                            500: '#6366f1',</p>
+<p class="p1">                            600: '#4f46e5',</p>
+<p class="p1">                            700: '#4338ca',</p>
+<p class="p1">                        }</p>
+<p class="p1">                    }</p>
+<p class="p1">                }</p>
+<p class="p1">            }</p>
+<p class="p1">        }</p>
+<p class="p1">    &lt;/script&gt;</p>
+<p class="p1">    &lt;style&gt;</p>
+<p class="p1">        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap');</p>
+<p class="p1">        body { font-family: 'Inter', sans-serif; }</p>
+<p class="p1">        .custom-scroll::-webkit-scrollbar { width: 6px; }</p>
+<p class="p1">        .custom-scroll::-webkit-scrollbar-track { background: transparent; }</p>
+<p class="p1">        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }</p>
+<p class="p1">        .dark .custom-scroll::-webkit-scrollbar-thumb { background: #475569; }</p>
+<p class="p1">    &lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200"&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- Navbar --&gt;</p>
+<p class="p1">    &lt;header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700"&gt;</p>
+<p class="p1">        &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"&gt;</p>
+<p class="p1">            &lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1">                &lt;div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/30"&gt;</p>
+<p class="p1">                    &lt;i class="fa-solid fa-bolt-lightning text-lg"&gt;&lt;/i&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">                &lt;div&gt;</p>
+<p class="p1">                    &lt;h1 class="font-bold text-lg leading-tight tracking-tight"&gt;ExecuFlow &lt;span class="text-brand-600 dark:text-brand-400"&gt;Pro&lt;/span&gt;&lt;/h1&gt;</p>
+<p class="p1">                    &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Asistente Ejecutivo de Actividades Guiadas&lt;/p&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;div class="flex items-center gap-2 sm:gap-3"&gt;</p>
+<p class="p1">                &lt;button onclick="generateSmartDay()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-xl shadow-sm transition flex items-center gap-2"&gt;</p>
+<p class="p1">                    &lt;i class="fa-solid fa-wand-magic-sparkles"&gt;&lt;/i&gt;</p>
+<p class="p1">                    &lt;span class="hidden sm:inline"&gt;Generar Día Inteligente&lt;/span&gt;</p>
+<p class="p1">                &lt;/button&gt;</p>
+<p class="p1">                &lt;button onclick="startAutopilot()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-brand-500/20 transition flex items-center gap-2"&gt;</p>
+<p class="p1">                    &lt;i class="fa-solid fa-play"&gt;&lt;/i&gt;</p>
+<p class="p1">                    &lt;span&gt;¿Qué hago ahora?&lt;/span&gt;</p>
+<p class="p1">                &lt;/button&gt;</p>
+<p class="p1">                &lt;button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition" title="Cambiar tema"&gt;</p>
+<p class="p1">                    &lt;i id="theme-icon" class="fa-solid fa-moon"&gt;&lt;/i&gt;</p>
+<p class="p1">                &lt;/button&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">    &lt;/header&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- Main Container --&gt;</p>
+<p class="p1">    &lt;main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6"&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;!-- Left Column: Protocols &amp; Guided Assistant (5 cols) --&gt;</p>
+<p class="p1">        &lt;div class="lg:col-span-5 space-y-6"&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- Active Focus Panel (Autopilot) --&gt;</p>
+<p class="p1">            &lt;div id="focus-panel" class="bg-gradient-to-br from-brand-600 to-indigo-800 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden"&gt;</p>
+<p class="p1">                &lt;div class="flex items-center justify-between mb-4"&gt;</p>
+<p class="p1">                    &lt;span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-sm flex items-center gap-1.5"&gt;</p>
+<p class="p1">                        &lt;span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"&gt;&lt;/span&gt;</p>
+<p class="p1">                        MODO PILOTO AUTOMÁTICO</p>
+<p class="p1">                    &lt;/span&gt;</p>
+<p class="p1">                    &lt;span id="focus-category" class="text-xs font-medium text-indigo-200 uppercase tracking-wider"&gt;Listo para iniciar&lt;/span&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;h2 id="focus-title" class="text-xl font-bold mb-2"&gt;Presiona «¿Qué hago ahora?»&lt;/h2&gt;</p>
+<p class="p1">                &lt;p id="focus-desc" class="text-sm text-indigo-100 mb-5 leading-relaxed"&gt;</p>
+<p class="p1">                    El sistema seleccionará automáticamente tu actividad más importante y te mostrará las instrucciones paso a paso para que no tengas que pensar qué hacer.</p>
+<p class="p1">                &lt;/p&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;!-- Step by step checklist inside Focus Panel --&gt;</p>
+<p class="p1">                &lt;div id="focus-steps-container" class="hidden bg-black/20 rounded-xl p-4 mb-5 backdrop-blur-sm"&gt;</p>
+<p class="p1">                    &lt;h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-200 mb-2.5 flex items-center gap-1.5"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-list-check"&gt;&lt;/i&gt; Instrucciones paso a paso (haz clic al avanzar):</p>
+<p class="p1">                    &lt;/h4&gt;</p>
+<p class="p1">                    &lt;div id="focus-steps-list" class="space-y-2 text-sm"&gt;&lt;/div&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;!-- Timer &amp; Controls --&gt;</p>
+<p class="p1">                &lt;div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/15"&gt;</p>
+<p class="p1">                    &lt;div class="flex items-center gap-3"&gt;</p>
+<p class="p1">                        &lt;div class="text-3xl font-mono font-bold tracking-wider" id="timer-display"&gt;25:00&lt;/div&gt;</p>
+<p class="p1">                        &lt;div class="flex gap-1.5"&gt;</p>
+<p class="p1">                            &lt;button onclick="toggleTimer()" id="timer-btn" class="px-3 py-1.5 rounded-lg bg-white text-brand-700 font-semibold text-xs hover:bg-indigo-50 transition"&gt;</p>
+<p class="p1">                                &lt;i class="fa-solid fa-play mr-1"&gt;&lt;/i&gt; Iniciar</p>
+<p class="p1">                            &lt;/button&gt;</p>
+<p class="p1">                            &lt;button onclick="resetTimer()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs transition" title="Reiniciar reloj"&gt;</p>
+<p class="p1">                                &lt;i class="fa-solid fa-rotate-right"&gt;&lt;/i&gt;</p>
+<p class="p1">                            &lt;/button&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;button id="complete-focus-btn" onclick="completeFocusedTask()" class="hidden px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs shadow-lg transition flex items-center gap-1.5"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-check-double"&gt;&lt;/i&gt; Terminar y Siguiente</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- Professional Protocols Catalog --&gt;</p>
+<p class="p1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</p>
+<p class="p1">                &lt;div class="flex items-center justify-between mb-3"&gt;</p>
+<p class="p1">                    &lt;div&gt;</p>
+<p class="p1">                        &lt;h3 class="font-bold text-base flex items-center gap-2"&gt;</p>
+<p class="p1">                            &lt;i class="fa-solid fa-layer-group text-brand-500"&gt;&lt;/i&gt;</p>
+<p class="p1">                            Catálogo de Protocolos Profesionales</p>
+<p class="p1">                        &lt;/h3&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Carga bloques de actividades probadas con un solo clic&lt;/p&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4"&gt;</p>
+<p class="p1">                    &lt;button onclick="loadProtocol('deepwork')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</p>
+<p class="p1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</p>
+<p class="p1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;🚀 Mañana Deep Work&lt;/span&gt;</p>
+<p class="p1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"&gt;3 act.&lt;/span&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Priorización MIT, bloque de enfoque profundo y revisión rápida.&lt;/p&gt;</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;button onclick="loadProtocol('ejecutivo')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</p>
+<p class="p1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</p>
+<p class="p1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;💼 Gestión y Cierre&lt;/span&gt;</p>
+<p class="p1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"&gt;3 act.&lt;/span&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Inbox Zero, seguimiento de pendientes y planificación de mañana.&lt;/p&gt;</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;button onclick="loadProtocol('salud')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</p>
+<p class="p1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</p>
+<p class="p1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;🌿 Bienestar y Energía&lt;/span&gt;</p>
+<p class="p1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"&gt;3 act.&lt;/span&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Pausa ocular/postural, hidratación y desconexión digital.&lt;/p&gt;</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;button onclick="loadProtocol('logistica')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group"&gt;</p>
+<p class="p1">                        &lt;div class="flex items-center justify-between mb-1"&gt;</p>
+<p class="p1">                            &lt;span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400"&gt;🏠 Logística Personal&lt;/span&gt;</p>
+<p class="p1">                            &lt;span class="text-xs px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"&gt;3 act.&lt;/span&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Finanzas del día, orden de espacio y trámites o compras.&lt;/p&gt;</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- Add Custom Task with Smart Autocomplete --&gt;</p>
+<p class="p1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</p>
+<p class="p1">                &lt;div class="flex items-center justify-between mb-4"&gt;</p>
+<p class="p1">                    &lt;h3 class="font-bold text-base flex items-center gap-2"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-plus-circle text-brand-500"&gt;&lt;/i&gt;</p>
+<p class="p1">                        Crear Actividad Guiada</p>
+<p class="p1">                    &lt;/h3&gt;</p>
+<p class="p1">                    &lt;button type="button" onclick="autoFillInstructions()" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-wand-sparkles"&gt;&lt;/i&gt; Autocompletar Pasos</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;form id="task-form" onsubmit="addCustomTask(event)" class="space-y-3"&gt;</p>
+<p class="p1">                    &lt;div&gt;</p>
+<p class="p1">                        &lt;input type="text" id="task-title" required placeholder="Ej: Preparar presentación de resultados..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;div class="grid grid-cols-3 gap-2"&gt;</p>
+<p class="p1">                        &lt;select id="task-category" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</p>
+<p class="p1">                            &lt;option value="Trabajo"&gt;💼 Trabajo&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="Salud"&gt;🌿 Salud&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="Estudio"&gt;📚 Estudio&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="Logística"&gt;🏠 Logística&lt;/option&gt;</p>
+<p class="p1">                        &lt;/select&gt;</p>
+<p class="p1">                        &lt;select id="task-priority" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</p>
+<p class="p1">                            &lt;option value="Alta"&gt;🔥 Prioridad Alta&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="Media" selected&gt;⚡ Prioridad Media&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="Baja"&gt;🌱 Prioridad Baja&lt;/option&gt;</p>
+<p class="p1">                        &lt;/select&gt;</p>
+<p class="p1">                        &lt;select id="task-duration" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium"&gt;</p>
+<p class="p1">                            &lt;option value="15"&gt;⏱️ 15 min&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="25" selected&gt;⏱️ 25 min&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="45"&gt;⏱️ 45 min&lt;/option&gt;</p>
+<p class="p1">                            &lt;option value="60"&gt;⏱️ 60 min&lt;/option&gt;</p>
+<p class="p1">                        &lt;/select&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;div&gt;</p>
+<p class="p1">                        &lt;textarea id="task-instructions" rows="2" placeholder="Instrucción experta (o pulsa 'Autocompletar Pasos' arriba)..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;&lt;/textarea&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;div&gt;</p>
+<p class="p1">                        &lt;input type="text" id="task-steps" placeholder="Pasos separados por coma (Ej: Definir objetivo, Redactar puntos, Revisar)" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                    &lt;button type="submit" class="w-full py-2.5 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-xs rounded-xl transition"&gt;</p>
+<p class="p1">                        Agregar a mi Ruta del Día</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1">                &lt;/form&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;!-- Right Column: Metrics, Filters &amp; Guided Task List (7 cols) --&gt;</p>
+<p class="p1">        &lt;div class="lg:col-span-7 space-y-6"&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- KPIs &amp; Progress Bar --&gt;</p>
+<p class="p1">            &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm"&gt;</p>
+<p class="p1">                &lt;div class="grid grid-cols-3 gap-4 mb-4"&gt;</p>
+<p class="p1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Pendientes&lt;/p&gt;</p>
+<p class="p1">                        &lt;p id="stat-pending" class="text-2xl font-bold text-slate-800 dark:text-white"&gt;0&lt;/p&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Completadas&lt;/p&gt;</p>
+<p class="p1">                        &lt;p id="stat-completed" class="text-2xl font-bold text-emerald-600 dark:text-emerald-400"&gt;0&lt;/p&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                    &lt;div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50"&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 dark:text-slate-400"&gt;Tiempo Estimado&lt;/p&gt;</p>
+<p class="p1">                        &lt;p id="stat-time" class="text-2xl font-bold text-brand-600 dark:text-brand-400"&gt;0m&lt;/p&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;div&gt;</p>
+<p class="p1">                    &lt;div class="flex justify-between text-xs font-medium mb-1.5"&gt;</p>
+<p class="p1">                        &lt;span class="text-slate-600 dark:text-slate-300"&gt;Progreso de Ejecución Diaria&lt;/span&gt;</p>
+<p class="p1">                        &lt;span id="progress-text" class="text-brand-600 dark:text-brand-400 font-bold"&gt;0%&lt;/span&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                    &lt;div class="w-full h-2.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"&gt;</p>
+<p class="p1">                        &lt;div id="progress-bar" class="h-full bg-brand-600 transition-all duration-500 rounded-full" style="width: 0%"&gt;&lt;/div&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- Search &amp; Filters --&gt;</p>
+<p class="p1">            &lt;div class="flex flex-col sm:flex-row gap-3 items-center justify-between"&gt;</p>
+<p class="p1">                &lt;div class="flex bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 w-full sm:w-auto"&gt;</p>
+<p class="p1">                    &lt;button onclick="setFilter('all')" id="filter-all" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition"&gt;Todas&lt;/button&gt;</p>
+<p class="p1">                    &lt;button onclick="setFilter('pending')" id="filter-pending" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition"&gt;Por hacer&lt;/button&gt;</p>
+<p class="p1">                    &lt;button onclick="setFilter('completed')" id="filter-completed" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition"&gt;Hechas&lt;/button&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                &lt;div class="flex items-center gap-2 w-full sm:w-auto"&gt;</p>
+<p class="p1">                    &lt;div class="relative flex-1 sm:w-56"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"&gt;&lt;/i&gt;</p>
+<p class="p1">                        &lt;input type="text" id="search-input" oninput="renderTasks()" placeholder="Buscar actividad..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                    &lt;button onclick="clearCompleted()" class="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-500 hover:text-rose-600 transition" title="Limpiar completadas"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-trash-can"&gt;&lt;/i&gt;</p>
+<p class="p1">                    &lt;/button&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">            &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">            &lt;!-- Guided Tasks List --&gt;</p>
+<p class="p1">            &lt;div id="tasks-list" class="space-y-3 custom-scroll max-h-[600px] overflow-y-auto pr-1"&gt;&lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">    &lt;/main&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- Toast Notification --&gt;</p>
+<p class="p1">    &lt;div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2"&gt;</p>
+<p class="p1">        &lt;i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"&gt;&lt;/i&gt;</p>
+<p class="p1">        &lt;span id="toast-msg"&gt;Acción realizada&lt;/span&gt;</p>
+<p class="p1">    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;script&gt;</p>
+<p class="p1">        // Pre-configured Professional Protocols</p>
+<p class="p1">        const PROTOCOLS = {</p>
+<p class="p1">            deepwork: [</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Definición de la Tarea Más Importante (MIT)",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Alta",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "Antes de abrir el correo o redes, define el único entregable que hará que tu día valga la pena.",</p>
+<p class="p1">                    steps: ["Cerrar pestañas de correo y mensajería", "Escribir el objetivo exacto en una frase", "Preparar solo los archivos o herramientas necesarios"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Bloque de Enfoque Profundo (Sin Interrupciones)",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Alta",</p>
+<p class="p1">                    duration: 45,</p>
+<p class="p1">                    instructions: "Pon el teléfono en modo avión o en otra habitación. Trabaja de corrido en tu tarea principal sin cambiar de ventana.",</p>
+<p class="p1">                    steps: ["Poner celular en silencio y lejos de la vista", "Avanzar el primer borrador o estructura durante 25 min", "Completar detalles críticos y guardar avances"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Auditoría Rápida de Avance",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Media",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "Evalúa lo logrado en el bloque anterior y deja anotado el siguiente paso inmediato.",</p>
+<p class="p1">                    steps: ["Revisar calidad de lo producido", "Anotar pendientes derivados", "Estirar brazos y cuello durante 2 minutos"]</p>
+<p class="p1">                }</p>
+<p class="p1">            ],</p>
+<p class="p1">            ejecutivo: [</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Procesamiento Rápido de Bandeja (Inbox Zero)",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Media",</p>
+<p class="p1">                    duration: 25,</p>
+<p class="p1">                    instructions: "Aplica la regla de los 2 minutos: si se responde en menos de 2 min, hazlo ahora; si no, agéndalo o archívalo.",</p>
+<p class="p1">                    steps: ["Archivar boletines y notificaciones automáticas", "Responder mensajes cortos urgentes (&lt; 2 min)", "Marcar correos largos para bloque de tarde"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Seguimiento de Entregables y Equipo",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Alta",</p>
+<p class="p1">                    duration: 20,</p>
+<p class="p1">                    instructions: "Revisa qué respuestas o bloqueos necesitas destrabar con clientes o colaboradores hoy.",</p>
+<p class="p1">                    steps: ["Revisar lista de temas esperando respuesta", "Enviar máximo 3 mensajes claros de seguimiento", "Actualizar estado de proyectos activos"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Ritual de Cierre y Planificación de Mañana",</p>
+<p class="p1">                    category: "Trabajo",</p>
+<p class="p1">                    priority: "Baja",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "No termines el día sin dejar listas las 3 prioridades de mañana para arrancar sin fricción.",</p>
+<p class="p1">                    steps: ["Revisar agenda de mañana por compromisos", "Elegir las 3 actividades clave del día siguiente", "Ordenar escritorio físico y cerrar pestañas"]</p>
+<p class="p1">                }</p>
+<p class="p1">            ],</p>
+<p class="p1">            salud: [</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Pausa Activa de Descompresión Postural y Visual",</p>
+<p class="p1">                    category: "Salud",</p>
+<p class="p1">                    priority: "Alta",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "Aléjate de cualquier pantalla para relajar la vista y activar la circulación sanguínea.",</p>
+<p class="p1">                    steps: ["Mirar un punto lejano por la ventana durante 60 segundos", "Realizar 10 rotaciones de hombros y estiramiento cervical", "Caminar 5 minutos lejos del escritorio"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Protocolo de Hidratación y Recarga de Energía",</p>
+<p class="p1">                    category: "Salud",</p>
+<p class="p1">                    priority: "Media",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "La fatiga mental suele ser deshidratación leve. Recarga agua y consume un snack ligero.",</p>
+<p class="p1">                    steps: ["Beber un vaso grande de agua pura (300-500 ml)", "Comer fruta o frutos secos (evitar azúcares refinados)", "Hacer 5 respiraciones profundas (inhalar 4s, exhalar 6s)"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Alimentación Consciente sin Pantallas",</p>
+<p class="p1">                    category: "Salud",</p>
+<p class="p1">                    priority: "Media",</p>
+<p class="p1">                    duration: 45,</p>
+<p class="p1">                    instructions: "Dedica tu hora de comida a nutrirte con calma para evitar pesadez en la tarde.",</p>
+<p class="p1">                    steps: ["Dejar el teléfono fuera de la mesa", "Priorizar vegetales y proteína de calidad", "Dar una caminata breve de 10 min al terminar"]</p>
+<p class="p1">                }</p>
+<p class="p1">            ],</p>
+<p class="p1">            logistica: [</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Control Exprés de Finanzas y Pagos",</p>
+<p class="p1">                    category: "Logística",</p>
+<p class="p1">                    priority: "Alta",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "Mantén tus cuentas al día revisando movimientos recientes y servicios por vencer.",</p>
+<p class="p1">                    steps: ["Verificar saldo y últimos cargos bancarios", "Pagar facturas o servicios pendientes de la semana", "Registrar gastos importantes del día"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Orden Rápido del Entorno (Regla de 15 Minutos)",</p>
+<p class="p1">                    category: "Logística",</p>
+<p class="p1">                    priority: "Baja",</p>
+<p class="p1">                    duration: 15,</p>
+<p class="p1">                    instructions: "Como es adentro es afuera: un espacio despejado reduce el ruido mental inmediatamente.",</p>
+<p class="p1">                    steps: ["Retirar tazas, vasos o papeles de la mesa de trabajo", "Organizar cables y cargadores", "Ventilar la habitación abriendo ventanas 10 minutos"]</p>
+<p class="p1">                },</p>
+<p class="p1">                {</p>
+<p class="p1">                    title: "Gestión de Compras, Pedidos y Vehículo/Hogar",</p>
+<p class="p1">                    category: "Logística",</p>
+<p class="p1">                    priority: "Media",</p>
+<p class="p1">                    duration: 25,</p>
+<p class="p1">                    instructions: "Agrupa tus diligencias domésticas en un solo bloque para no interrumpir tu mañana.",</p>
+<p class="p1">                    steps: ["Revisar faltantes de despensa o comida de la semana", "Verificar citas, mantenimientos o trámites pendientes", "Realizar pedidos necesarios en una sola tanda"]</p>
+<p class="p1">                }</p>
+<p class="p1">            ]</p>
+<p class="p1">        };</p>
+<p class="p1"> </p>
+<p class="p1">        const DEFAULT_TEMPLATES = {</p>
+<p class="p1">            "Trabajo": {</p>
+<p class="p1">                instructions: "Divide esta actividad en un entregable claro. Elimina distracciones durante el bloque y enfócate en terminar una primera versión funcional.",</p>
+<p class="p1">                steps: ["Definir el resultado exacto esperado", "Ejecutar el bloque principal sin mirar el celular", "Revisar y dar por concluido el entregable"]</p>
+<p class="p1">            },</p>
+<p class="p1">            "Salud": {</p>
+<p class="p1">                instructions: "Prioriza tu energía física. Desconéctate de las pantallas y realiza la actividad con atención plena en tu respiración y postura.",</p>
+<p class="p1">                steps: ["Preparar el espacio o hidratación", "Realizar la actividad de bienestar sin prisa", "Estirar y retomar el día renovado"]</p>
+<p class="p1">            },</p>
+<p class="p1">            "Estudio": {</p>
+<p class="p1">                instructions: "Usa aprendizaje activo: no solo leas o mires, toma notas con tus propias palabras y resume las ideas clave.",</p>
+<p class="p1">                steps: ["Leer o revisar el material principal", "Anotar 3 conceptos o aprendizajes clave", "Aplicar o resumir lo aprendido en 5 minutos"]</p>
+<p class="p1">            },</p>
+<p class="p1">            "Logística": {</p>
+<p class="p1">                instructions: "Resuelve este pendiente de principio a fin ahora mismo para liberarlo de tu memoria mental.",</p>
+<p class="p1">                steps: ["Reunir datos, documentos o contactos necesarios", "Ejecutar el trámite, pago o gestión", "Guardar comprobante o confirmar cierre"]</p>
+<p class="p1">            }</p>
+<p class="p1">        };</p>
+<p class="p1"> </p>
+<p class="p1">        let tasks = [];</p>
+<p class="p1">        let currentFilter = 'all';</p>
+<p class="p1">        let activeTaskId = null;</p>
+<p class="p1">        let timerInterval = null;</p>
+<p class="p1">        let timeLeft = 25 * 60;</p>
+<p class="p1">        let isTimerRunning = false;</p>
+<p class="p1"> </p>
+<p class="p1">        // Initialization</p>
+<p class="p1">        document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1">            initTheme();</p>
+<p class="p1">            const saved = localStorage.getItem('execuflow_pro_tasks');</p>
+<p class="p1">            if (saved) {</p>
+<p class="p1">                tasks = JSON.parse(saved);</p>
+<p class="p1">            } else {</p>
+<p class="p1">                generateSmartDay(true);</p>
+<p class="p1">            }</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">        });</p>
+<p class="p1"> </p>
+<p class="p1">        function saveTasks() {</p>
+<p class="p1">            localStorage.setItem('execuflow_pro_tasks', JSON.stringify(tasks));</p>
+<p class="p1">            updateStats();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        // Generate full balanced day</p>
+<p class="p1">        function generateSmartDay(silent = false) {</p>
+<p class="p1">            const smartSelection = [</p>
+<p class="p1">                PROTOCOLS.deepwork[0],</p>
+<p class="p1">                PROTOCOLS.deepwork[1],</p>
+<p class="p1">                PROTOCOLS.salud[0],</p>
+<p class="p1">                PROTOCOLS.ejecutivo[0],</p>
+<p class="p1">                PROTOCOLS.logistica[1],</p>
+<p class="p1">                PROTOCOLS.ejecutivo[2]</p>
+<p class="p1">            ];</p>
+<p class="p1"> </p>
+<p class="p1">            smartSelection.forEach(item =&gt; {</p>
+<p class="p1">                const exists = tasks.some(t =&gt; t.title === item.title &amp;&amp; !t.completed);</p>
+<p class="p1">                if (!exists) {</p>
+<p class="p1">                    tasks.push({</p>
+<p class="p1">                        id: Date.now() + Math.random(),</p>
+<p class="p1">                        title: item.title,</p>
+<p class="p1">                        category: item.category,</p>
+<p class="p1">                        priority: item.priority,</p>
+<p class="p1">                        duration: item.duration,</p>
+<p class="p1">                        instructions: item.instructions,</p>
+<p class="p1">                        steps: item.steps.map(s =&gt; ({ text: s, done: false })),</p>
+<p class="p1">                        completed: false</p>
+<p class="p1">                    });</p>
+<p class="p1">                }</p>
+<p class="p1">            });</p>
+<p class="p1"> </p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">            if (!silent) showToast("✨ Día Inteligente generado con instrucciones paso a paso");</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function loadProtocol(key) {</p>
+<p class="p1">            const list = PROTOCOLS[key];</p>
+<p class="p1">            if (!list) return;</p>
+<p class="p1">            list.forEach(item =&gt; {</p>
+<p class="p1">                tasks.unshift({</p>
+<p class="p1">                    id: Date.now() + Math.random(),</p>
+<p class="p1">                    title: item.title,</p>
+<p class="p1">                    category: item.category,</p>
+<p class="p1">                    priority: item.priority,</p>
+<p class="p1">                    duration: item.duration,</p>
+<p class="p1">                    instructions: item.instructions,</p>
+<p class="p1">                    steps: item.steps.map(s =&gt; ({ text: s, done: false })),</p>
+<p class="p1">                    completed: false</p>
+<p class="p1">                });</p>
+<p class="p1">            });</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">            showToast("📦 Protocolo profesional cargado en tu lista");</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function autoFillInstructions() {</p>
+<p class="p1">            const cat = document.getElementById('task-category').value;</p>
+<p class="p1">            const title = document.getElementById('task-title').value.trim();</p>
+<p class="p1">            const tpl = DEFAULT_TEMPLATES[cat] || DEFAULT_TEMPLATES["Trabajo"];</p>
+<p class="p1"> </p>
+<p class="p1">            document.getElementById('task-instructions').value = title</p>
+<p class="p1">                ? `Para «${title}»: ${tpl.instructions}`</p>
+<p class="p1">                : tpl.instructions;</p>
+<p class="p1">            document.getElementById('task-steps').value = tpl.steps.join(', ');</p>
+<p class="p1">            showToast("🪄 Instrucciones y pasos generados automáticamente");</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function addCustomTask(e) {</p>
+<p class="p1">            e.preventDefault();</p>
+<p class="p1">            const title = document.getElementById('task-title').value.trim();</p>
+<p class="p1">            const category = document.getElementById('task-category').value;</p>
+<p class="p1">            const priority = document.getElementById('task-priority').value;</p>
+<p class="p1">            const duration = parseInt(document.getElementById('task-duration').value, 10);</p>
+<p class="p1">            let instructions = document.getElementById('task-instructions').value.trim();</p>
+<p class="p1">            let stepsRaw = document.getElementById('task-steps').value.trim();</p>
+<p class="p1"> </p>
+<p class="p1">            const tpl = DEFAULT_TEMPLATES[category];</p>
+<p class="p1">            if (!instructions) instructions = tpl.instructions;</p>
+<p class="p1">            const stepsArray = stepsRaw</p>
+<p class="p1">                ? stepsRaw.split(',').map(s =&gt; s.trim()).filter(Boolean)</p>
+<p class="p1">                : tpl.steps;</p>
+<p class="p1"> </p>
+<p class="p1">            const newTask = {</p>
+<p class="p1">                id: Date.now(),</p>
+<p class="p1">                title,</p>
+<p class="p1">                category,</p>
+<p class="p1">                priority,</p>
+<p class="p1">                duration,</p>
+<p class="p1">                instructions,</p>
+<p class="p1">                steps: stepsArray.map(s =&gt; ({ text: s, done: false })),</p>
+<p class="p1">                completed: false</p>
+<p class="p1">            };</p>
+<p class="p1"> </p>
+<p class="p1">            tasks.unshift(newTask);</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">            e.target.reset();</p>
+<p class="p1">            showToast("✅ Actividad agregada con su guía de ejecución");</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        // Autopilot / Focus Panel</p>
+<p class="p1">        function startAutopilot(specificId = null) {</p>
+<p class="p1">            const priorityOrder = { 'Alta': 1, 'Media': 2, 'Baja': 3 };</p>
+<p class="p1">            let targetTask = null;</p>
+<p class="p1"> </p>
+<p class="p1">            if (specificId) {</p>
+<p class="p1">                targetTask = tasks.find(t =&gt; t.id === specificId);</p>
+<p class="p1">            } else {</p>
+<p class="p1">                const pending = tasks.filter(t =&gt; !t.completed).sort((a, b) =&gt; priorityOrder[a.priority] - priorityOrder[b.priority]);</p>
+<p class="p1">                targetTask = pending[0];</p>
+<p class="p1">            }</p>
+<p class="p1"> </p>
+<p class="p1">            if (!targetTask) {</p>
+<p class="p1">                showToast("🎉 ¡No tienes actividades pendientes! Genera un Día Inteligente.");</p>
+<p class="p1">                return;</p>
+<p class="p1">            }</p>
+<p class="p1"> </p>
+<p class="p1">            activeTaskId = targetTask.id;</p>
+<p class="p1">            document.getElementById('focus-category').textContent = `${targetTask.category} • PRIORIDAD ${targetTask.priority.toUpperCase()}`;</p>
+<p class="p1">            document.getElementById('focus-title').textContent = targetTask.title;</p>
+<p class="p1">            document.getElementById('focus-desc').textContent = targetTask.instructions;</p>
+<p class="p1">            document.getElementById('complete-focus-btn').classList.remove('hidden');</p>
+<p class="p1"> </p>
+<p class="p1">            renderFocusSteps(targetTask);</p>
+<p class="p1"> </p>
+<p class="p1">            // Configure timer</p>
+<p class="p1">            pauseTimer();</p>
+<p class="p1">            timeLeft = (targetTask.duration || 25) * 60;</p>
+<p class="p1">            updateTimerDisplay();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">            window.scrollTo({ top: 0, behavior: 'smooth' });</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function renderFocusSteps(task) {</p>
+<p class="p1">            const container = document.getElementById('focus-steps-container');</p>
+<p class="p1">            const listEl = document.getElementById('focus-steps-list');</p>
+<p class="p1">            if (!task.steps || task.steps.length === 0) {</p>
+<p class="p1">                container.classList.add('hidden');</p>
+<p class="p1">                return;</p>
+<p class="p1">            }</p>
+<p class="p1">            container.classList.remove('hidden');</p>
+<p class="p1">            listEl.innerHTML = task.steps.map((step, idx) =&gt; `</p>
+<p class="p1">                &lt;label class="flex items-start gap-2.5 cursor-pointer p-1.5 rounded-lg hover:bg-white/10 transition"&gt;</p>
+<p class="p1">                    &lt;input type="checkbox" ${step.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${idx})" class="mt-1 rounded text-emerald-500 focus:ring-0"&gt;</p>
+<p class="p1">                    &lt;span class="${step.done ? 'line-through text-indigo-200/60' : 'text-white'}"&gt;${step.text}&lt;/span&gt;</p>
+<p class="p1">                &lt;/label&gt;</p>
+<p class="p1">            `).join('');</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function toggleSubstep(taskId, stepIdx) {</p>
+<p class="p1">            const task = tasks.find(t =&gt; t.id === taskId);</p>
+<p class="p1">            if (!task) return;</p>
+<p class="p1">            task.steps[stepIdx].done = !task.steps[stepIdx].done;</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            if (activeTaskId === taskId) renderFocusSteps(task);</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function completeFocusedTask() {</p>
+<p class="p1">            if (!activeTaskId) return;</p>
+<p class="p1">            const task = tasks.find(t =&gt; t.id === activeTaskId);</p>
+<p class="p1">            if (task) {</p>
+<p class="p1">                task.completed = true;</p>
+<p class="p1">                task.steps.forEach(s =&gt; s.done = true);</p>
+<p class="p1">                saveTasks();</p>
+<p class="p1">                showToast("🏆 ¡Excelente! Actividad completada.");</p>
+<p class="p1">            }</p>
+<p class="p1">            const remaining = tasks.filter(t =&gt; !t.completed);</p>
+<p class="p1">            if (remaining.length &gt; 0) {</p>
+<p class="p1">                startAutopilot();</p>
+<p class="p1">            } else {</p>
+<p class="p1">                activeTaskId = null;</p>
+<p class="p1">                pauseTimer();</p>
+<p class="p1">                document.getElementById('focus-title').textContent = "🎉 ¡Día Completado con Éxito!";</p>
+<p class="p1">                document.getElementById('focus-desc').textContent = "Has terminado todas las actividades programadas. Descansa o carga un nuevo protocolo.";</p>
+<p class="p1">                document.getElementById('focus-steps-container').classList.add('hidden');</p>
+<p class="p1">                document.getElementById('complete-focus-btn').classList.add('hidden');</p>
+<p class="p1">                renderTasks();</p>
+<p class="p1">            }</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        // Timer Functions</p>
+<p class="p1">        function updateTimerDisplay() {</p>
+<p class="p1">            const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');</p>
+<p class="p1">            const s = String(timeLeft % 60).padStart(2, '0');</p>
+<p class="p1">            document.getElementById('timer-display').textContent = `${m}:${s}`;</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function toggleTimer() {</p>
+<p class="p1">            if (isTimerRunning) {</p>
+<p class="p1">                pauseTimer();</p>
+<p class="p1">            } else {</p>
+<p class="p1">                isTimerRunning = true;</p>
+<p class="p1">                document.getElementById('timer-btn').innerHTML = `&lt;i class="fa-solid fa-pause mr-1"&gt;&lt;/i&gt; Pausar`;</p>
+<p class="p1">                timerInterval = setInterval(() =&gt; {</p>
+<p class="p1">                    if (timeLeft &gt; 0) {</p>
+<p class="p1">                        timeLeft--;</p>
+<p class="p1">                        updateTimerDisplay();</p>
+<p class="p1">                    } else {</p>
+<p class="p1">                        pauseTimer();</p>
+<p class="p1">                        playBeep();</p>
+<p class="p1">                        showToast("⏰ ¡Tiempo del bloque terminado!");</p>
+<p class="p1">                    }</p>
+<p class="p1">                }, 1000);</p>
+<p class="p1">            }</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function pauseTimer() {</p>
+<p class="p1">            isTimerRunning = false;</p>
+<p class="p1">            clearInterval(timerInterval);</p>
+<p class="p1">            const btn = document.getElementById('timer-btn');</p>
+<p class="p1">            if (btn) btn.innerHTML = `&lt;i class="fa-solid fa-play mr-1"&gt;&lt;/i&gt; Iniciar`;</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function resetTimer() {</p>
+<p class="p1">            pauseTimer();</p>
+<p class="p1">            const task = tasks.find(t =&gt; t.id === activeTaskId);</p>
+<p class="p1">            timeLeft = ((task &amp;&amp; task.duration) ? task.duration : 25) * 60;</p>
+<p class="p1">            updateTimerDisplay();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function playBeep() {</p>
+<p class="p1">            try {</p>
+<p class="p1">                const ctx = new (window.AudioContext || window.webkitAudioContext)();</p>
+<p class="p1">                const osc = ctx.createOscillator();</p>
+<p class="p1">                const gain = ctx.createGain();</p>
+<p class="p1">                osc.type = 'sine';</p>
+<p class="p1">                osc.frequency.setValueAtTime(660, ctx.currentTime);</p>
+<p class="p1">                gain.gain.setValueAtTime(0.15, ctx.currentTime);</p>
+<p class="p1">                osc.connect(gain);</p>
+<p class="p1">                gain.connect(ctx.destination);</p>
+<p class="p1">                osc.start();</p>
+<p class="p1">                osc.stop(ctx.currentTime + 0.4);</p>
+<p class="p1">            } catch (e) {}</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        // Task Operations &amp; Rendering</p>
+<p class="p1">        function toggleTaskStatus(id) {</p>
+<p class="p1">            const task = tasks.find(t =&gt; t.id === id);</p>
+<p class="p1">            if (!task) return;</p>
+<p class="p1">            task.completed = !task.completed;</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function deleteTask(id) {</p>
+<p class="p1">            tasks = tasks.filter(t =&gt; t.id !== id);</p>
+<p class="p1">            if (activeTaskId === id) activeTaskId = null;</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function clearCompleted() {</p>
+<p class="p1">            tasks = tasks.filter(t =&gt; !t.completed);</p>
+<p class="p1">            saveTasks();</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">            showToast("🧹 Actividades completadas eliminadas");</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function setFilter(f) {</p>
+<p class="p1">            currentFilter = f;</p>
+<p class="p1">            ['all', 'pending', 'completed'].forEach(k =&gt; {</p>
+<p class="p1">                const btn = document.getElementById(`filter-${k}`);</p>
+<p class="p1">                if (k === f) {</p>
+<p class="p1">                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition";</p>
+<p class="p1">                } else {</p>
+<p class="p1">                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition";</p>
+<p class="p1">                }</p>
+<p class="p1">            });</p>
+<p class="p1">            renderTasks();</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function updateStats() {</p>
+<p class="p1">            const total = tasks.length;</p>
+<p class="p1">            const completed = tasks.filter(t =&gt; t.completed).length;</p>
+<p class="p1">            const pending = total - completed;</p>
+<p class="p1">            const totalMinutes = tasks.filter(t =&gt; !t.completed).reduce((acc, t) =&gt; acc + (t.duration || 25), 0);</p>
+<p class="p1">            const pct = total === 0 ? 0 : Math.round((completed / total) * 100);</p>
+<p class="p1"> </p>
+<p class="p1">            document.getElementById('stat-pending').textContent = pending;</p>
+<p class="p1">            document.getElementById('stat-completed').textContent = completed;</p>
+<p class="p1">            document.getElementById('stat-time').textContent = `${totalMinutes}m`;</p>
+<p class="p1">            document.getElementById('progress-text').textContent = `${pct}%`;</p>
+<p class="p1">            document.getElementById('progress-bar').style.width = `${pct}%`;</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function renderTasks() {</p>
+<p class="p1">            updateStats();</p>
+<p class="p1">            const query = document.getElementById('search-input').value.toLowerCase();</p>
+<p class="p1">            const container = document.getElementById('tasks-list');</p>
+<p class="p1"> </p>
+<p class="p1">            const filtered = tasks.filter(t =&gt; {</p>
+<p class="p1">                if (currentFilter === 'pending' &amp;&amp; t.completed) return false;</p>
+<p class="p1">                if (currentFilter === 'completed' &amp;&amp; !t.completed) return false;</p>
+<p class="p1">                if (query &amp;&amp; !t.title.toLowerCase().includes(query) &amp;&amp; !t.category.toLowerCase().includes(query)) return false;</p>
+<p class="p1">                return true;</p>
+<p class="p1">            });</p>
+<p class="p1"> </p>
+<p class="p1">            if (filtered.length === 0) {</p>
+<p class="p1">                container.innerHTML = `</p>
+<p class="p1">                    &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center border border-dashed border-slate-300 dark:border-slate-700"&gt;</p>
+<p class="p1">                        &lt;i class="fa-solid fa-clipboard-check text-3xl text-slate-400 mb-2"&gt;&lt;/i&gt;</p>
+<p class="p1">                        &lt;p class="font-semibold text-sm"&gt;No hay actividades en esta vista&lt;/p&gt;</p>
+<p class="p1">                        &lt;p class="text-xs text-slate-500 mt-1"&gt;Usa el botón «Generar Día Inteligente» arriba para armar tu rutina.&lt;/p&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                `;</p>
+<p class="p1">                return;</p>
+<p class="p1">            }</p>
+<p class="p1"> </p>
+<p class="p1">            const priorityBadge = {</p>
+<p class="p1">                'Alta': 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',</p>
+<p class="p1">                'Media': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',</p>
+<p class="p1">                'Baja': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'</p>
+<p class="p1">            };</p>
+<p class="p1"> </p>
+<p class="p1">            container.innerHTML = filtered.map(task =&gt; {</p>
+<p class="p1">                const isFocused = task.id === activeTaskId;</p>
+<p class="p1">                const stepsDone = task.steps ? task.steps.filter(s =&gt; s.done).length : 0;</p>
+<p class="p1">                const totalSteps = task.steps ? task.steps.length : 0;</p>
+<p class="p1"> </p>
+<p class="p1">                return `</p>
+<p class="p1">                &lt;div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border ${isFocused ? 'border-2 border-brand-500 ring-2 ring-brand-500/20' : 'border-slate-200 dark:border-slate-700'} shadow-sm transition"&gt;</p>
+<p class="p1">                    &lt;div class="flex items-start justify-between gap-3"&gt;</p>
+<p class="p1">                        &lt;div class="flex items-start gap-3 flex-1"&gt;</p>
+<p class="p1">                            &lt;input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus(${task.id})" class="mt-1 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 cursor-pointer"&gt;</p>
+<p class="p1">                            &lt;div class="flex-1"&gt;</p>
+<p class="p1">                                &lt;div class="flex flex-wrap items-center gap-2 mb-1"&gt;</p>
+<p class="p1">                                    &lt;span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"&gt;${task.category}&lt;/span&gt;</p>
+<p class="p1">                                    &lt;span class="text-[11px] font-semibold px-2 py-0.5 rounded-md ${priorityBadge[task.priority] || ''}"&gt;${task.priority}&lt;/span&gt;</p>
+<p class="p1">                                    &lt;span class="text-[11px] text-slate-400"&gt;&lt;i class="fa-regular fa-clock mr-1"&gt;&lt;/i&gt;${task.duration} min&lt;/span&gt;</p>
+<p class="p1">                                    ${totalSteps &gt; 0 ? `&lt;span class="text-[11px] text-brand-600 dark:text-brand-400 font-medium"&gt;&lt;i class="fa-solid fa-list-check mr-1"&gt;&lt;/i&gt;${stepsDone}/${totalSteps} pasos&lt;/span&gt;` : ''}</p>
+<p class="p1">                                &lt;/div&gt;</p>
+<p class="p1">                                &lt;h4 class="font-bold text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-100'}"&gt;${task.title}&lt;/h4&gt;</p>
+<p class="p1">                                &lt;p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed"&gt;${task.instructions}&lt;/p&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                                ${task.steps &amp;&amp; task.steps.length &gt; 0 ? `</p>
+<p class="p1">                                &lt;div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 space-y-1.5"&gt;</p>
+<p class="p1">                                    ${task.steps.map((st, sIdx) =&gt; `</p>
+<p class="p1">                                        &lt;label class="flex items-center gap-2 text-xs cursor-pointer text-slate-600 dark:text-slate-300 hover:text-brand-600"&gt;</p>
+<p class="p1">                                            &lt;input type="checkbox" ${st.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${sIdx})" class="rounded text-brand-600 focus:ring-0 w-3.5 h-3.5"&gt;</p>
+<p class="p1">                                            &lt;span class="${st.done ? 'line-through text-slate-400' : ''}"&gt;${st.text}&lt;/span&gt;</p>
+<p class="p1">                                        &lt;/label&gt;</p>
+<p class="p1">                                    `).join('')}</p>
+<p class="p1">                                &lt;/div&gt;</p>
+<p class="p1">                                ` : ''}</p>
+<p class="p1">                            &lt;/div&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">                        &lt;div class="flex items-center gap-1.5"&gt;</p>
+<p class="p1">                            ${!task.completed ? `</p>
+<p class="p1">                            &lt;button onclick="startAutopilot(${task.id})" class="px-2.5 py-1.5 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white text-xs font-semibold transition flex items-center gap-1" title="Enfocarme en esta actividad"&gt;</p>
+<p class="p1">                                &lt;i class="fa-solid fa-crosshairs"&gt;&lt;/i&gt; Guiarme</p>
+<p class="p1">                            &lt;/button&gt;</p>
+<p class="p1">                            ` : ''}</p>
+<p class="p1">                            &lt;button onclick="deleteTask(${task.id})" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-slate-700 transition" title="Eliminar"&gt;</p>
+<p class="p1">                                &lt;i class="fa-solid fa-xmark"&gt;&lt;/i&gt;</p>
+<p class="p1">                            &lt;/button&gt;</p>
+<p class="p1">                        &lt;/div&gt;</p>
+<p class="p1">                    &lt;/div&gt;</p>
+<p class="p1">                &lt;/div&gt;</p>
+<p class="p1">                `;</p>
+<p class="p1">            }).join('');</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        // Theme Toggle</p>
+<p class="p1">        function initTheme() {</p>
+<p class="p1">            if (localStorage.getItem('execuflow_theme') === 'dark') {</p>
+<p class="p1">                document.documentElement.classList.add('dark');</p>
+<p class="p1">                document.getElementById('theme-icon').className = 'fa-solid fa-sun';</p>
+<p class="p1">            }</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function toggleTheme() {</p>
+<p class="p1">            const html = document.documentElement;</p>
+<p class="p1">            const isDark = html.classList.toggle('dark');</p>
+<p class="p1">            localStorage.setItem('execuflow_theme', isDark ? 'dark' : 'light');</p>
+<p class="p1">            document.getElementById('theme-icon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        function showToast(msg) {</p>
+<p class="p1">            const toast = document.getElementById('toast');</p>
+<p class="p1">            document.getElementById('toast-msg').textContent = msg;</p>
+<p class="p1">            toast.classList.remove('translate-y-20', 'opacity-0');</p>
+<p class="p1">            setTimeout(() =&gt; {</p>
+<p class="p1">                toast.classList.add('translate-y-20', 'opacity-0');</p>
+<p class="p1">            }, 3000);</p>
+<p class="p1">        }</p>
+<p class="p1">    &lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>

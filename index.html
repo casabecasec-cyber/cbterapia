@@ -1,815 +1,490 @@
 <!DOCTYPE html>
-<html lang="es" class="light">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExecuFlow Pro | Asistente Ejecutivo Guiado</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .custom-scroll::-webkit-scrollbar { width: 6px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark .custom-scroll::-webkit-scrollbar-thumb { background: #475569; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecuFlow Pro | Asistente Ejecutivo Guiado</title>
+    <!-- Cargador directo de diseño optimizado -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200">
- 
-    <!-- Navbar -->
-    <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
-                    <i class="fa-solid fa-bolt-lightning text-lg"></i>
-                </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight tracking-tight">ExecuFlow <span class="text-brand-600 dark:text-brand-400">Pro</span></h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Asistente Ejecutivo de Actividades Guiadas</p>
-                </div>
-            </div>
- 
-            <div class="flex items-center gap-2 sm:gap-3">
-                <button onclick="generateSmartDay()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-xl shadow-sm transition flex items-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span class="hidden sm:inline">Generar Día Inteligente</span>
-                </button>
-                <button onclick="startAutopilot()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-brand-500/20 transition flex items-center gap-2">
-                    <i class="fa-solid fa-play"></i>
-                    <span>¿Qué hago ahora?</span>
-                </button>
-                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition" title="Cambiar tema">
-                    <i id="theme-icon" class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-        </div>
-    </header>
- 
-    <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
- 
-        <!-- Left Column: Protocols & Guided Assistant (5 cols) -->
-        <div class="lg:col-span-5 space-y-6">
- 
-            <!-- Active Focus Panel (Autopilot) -->
-            <div id="focus-panel" class="bg-gradient-to-br from-brand-600 to-indigo-800 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-sm flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        MODO PILOTO AUTOMÁTICO
-                    </span>
-                    <span id="focus-category" class="text-xs font-medium text-indigo-200 uppercase tracking-wider">Listo para iniciar</span>
-                </div>
- 
-                <h2 id="focus-title" class="text-xl font-bold mb-2">Presiona «¿Qué hago ahora?»</h2>
-                <p id="focus-desc" class="text-sm text-indigo-100 mb-5 leading-relaxed">
-                    El sistema seleccionará automáticamente tu actividad más importante y te mostrará las instrucciones paso a paso para que no tengas que pensar qué hacer.
-                </p>
- 
-                <!-- Step by step checklist inside Focus Panel -->
-                <div id="focus-steps-container" class="hidden bg-black/20 rounded-xl p-4 mb-5 backdrop-blur-sm">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-200 mb-2.5 flex items-center gap-1.5">
-                        <i class="fa-solid fa-list-check"></i> Instrucciones paso a paso (haz clic al avanzar):
-                    </h4>
-                    <div id="focus-steps-list" class="space-y-2 text-sm"></div>
-                </div>
- 
-                <!-- Timer & Controls -->
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/15">
-                    <div class="flex items-center gap-3">
-                        <div class="text-3xl font-mono font-bold tracking-wider" id="timer-display">25:00</div>
-                        <div class="flex gap-1.5">
-                            <button onclick="toggleTimer()" id="timer-btn" class="px-3 py-1.5 rounded-lg bg-white text-brand-700 font-semibold text-xs hover:bg-indigo-50 transition">
-                                <i class="fa-solid fa-play mr-1"></i> Iniciar
-                            </button>
-                            <button onclick="resetTimer()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs transition" title="Reiniciar reloj">
-                                <i class="fa-solid fa-rotate-right"></i>
-                            </button>
-                        </div>
-                    </div>
- 
-                    <button id="complete-focus-btn" onclick="completeFocusedTask()" class="hidden px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs shadow-lg transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-check-double"></i> Terminar y Siguiente
-                    </button>
-                </div>
-            </div>
- 
-            <!-- Professional Protocols Catalog -->
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-                <div class="flex items-center justify-between mb-3">
-                    <div>
-                        <h3 class="font-bold text-base flex items-center gap-2">
-                            <i class="fa-solid fa-layer-group text-brand-500"></i>
-                            Catálogo de Protocolos Profesionales
-                        </h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Carga bloques de actividades probadas con un solo clic</p>
-                    </div>
-                </div>
- 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                    <button onclick="loadProtocol('deepwork')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400">🚀 Mañana Deep Work</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">3 act.</span>
-                        </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Priorización MIT, bloque de enfoque profundo y revisión rápida.</p>
-                    </button>
- 
-                    <button onclick="loadProtocol('ejecutivo')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400">💼 Gestión y Cierre</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300">3 act.</span>
-                        </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Inbox Zero, seguimiento de pendientes y planificación de mañana.</p>
-                    </button>
- 
-                    <button onclick="loadProtocol('salud')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400">🌿 Bienestar y Energía</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">3 act.</span>
-                        </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Pausa ocular/postural, hidratación y desconexión digital.</p>
-                    </button>
- 
-                    <button onclick="loadProtocol('logistica')" class="text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-50/40 dark:hover:bg-slate-700/50 transition group">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="font-semibold text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400">🏠 Logística Personal</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300">3 act.</span>
-                        </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Finanzas del día, orden de espacio y trámites o compras.</p>
-                    </button>
-                </div>
-            </div>
- 
-            <!-- Add Custom Task with Smart Autocomplete -->
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-base flex items-center gap-2">
-                        <i class="fa-solid fa-plus-circle text-brand-500"></i>
-                        Crear Actividad Guiada
-                    </h3>
-                    <button type="button" onclick="autoFillInstructions()" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
-                        <i class="fa-solid fa-wand-sparkles"></i> Autocompletar Pasos
-                    </button>
-                </div>
- 
-                <form id="task-form" onsubmit="addCustomTask(event)" class="space-y-3">
-                    <div>
-                        <input type="text" id="task-title" required placeholder="Ej: Preparar presentación de resultados..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                    </div>
- 
-                    <div class="grid grid-cols-3 gap-2">
-                        <select id="task-category" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
-                            <option value="Trabajo">💼 Trabajo</option>
-                            <option value="Salud">🌿 Salud</option>
-                            <option value="Estudio">📚 Estudio</option>
-                            <option value="Logística">🏠 Logística</option>
-                        </select>
-                        <select id="task-priority" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
-                            <option value="Alta">🔥 Prioridad Alta</option>
-                            <option value="Media" selected>⚡ Prioridad Media</option>
-                            <option value="Baja">🌱 Prioridad Baja</option>
-                        </select>
-                        <select id="task-duration" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
-                            <option value="15">⏱️ 15 min</option>
-                            <option value="25" selected>⏱️ 25 min</option>
-                            <option value="45">⏱️ 45 min</option>
-                            <option value="60">⏱️ 60 min</option>
-                        </select>
-                    </div>
- 
-                    <div>
-                        <textarea id="task-instructions" rows="2" placeholder="Instrucción experta (o pulsa 'Autocompletar Pasos' arriba)..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
-                    </div>
- 
-                    <div>
-                        <input type="text" id="task-steps" placeholder="Pasos separados por coma (Ej: Definir objetivo, Redactar puntos, Revisar)" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
-                    </div>
- 
-                    <button type="submit" class="w-full py-2.5 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-xs rounded-xl transition">
-                        Agregar a mi Ruta del Día
-                    </button>
-                </form>
-            </div>
-        </div>
- 
-        <!-- Right Column: Metrics, Filters & Guided Task List (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
- 
-            <!-- KPIs & Progress Bar -->
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-                <div class="grid grid-cols-3 gap-4 mb-4">
-                    <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50">
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Pendientes</p>
-                        <p id="stat-pending" class="text-2xl font-bold text-slate-800 dark:text-white">0</p>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50">
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Completadas</p>
-                        <p id="stat-completed" class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">0</p>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700/50">
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Tiempo Estimado</p>
-                        <p id="stat-time" class="text-2xl font-bold text-brand-600 dark:text-brand-400">0m</p>
-                    </div>
-                </div>
- 
-                <div>
-                    <div class="flex justify-between text-xs font-medium mb-1.5">
-                        <span class="text-slate-600 dark:text-slate-300">Progreso de Ejecución Diaria</span>
-                        <span id="progress-text" class="text-brand-600 dark:text-brand-400 font-bold">0%</span>
-                    </div>
-                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                        <div id="progress-bar" class="h-full bg-brand-600 transition-all duration-500 rounded-full" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
- 
-            <!-- Search & Filters -->
-            <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
-                <div class="flex bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 w-full sm:w-auto">
-                    <button onclick="setFilter('all')" id="filter-all" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition">Todas</button>
-                    <button onclick="setFilter('pending')" id="filter-pending" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition">Por hacer</button>
-                    <button onclick="setFilter('completed')" id="filter-completed" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition">Hechas</button>
-                </div>
- 
-                <div class="flex items-center gap-2 w-full sm:w-auto">
-                    <div class="relative flex-1 sm:w-56">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                        <input type="text" id="search-input" oninput="renderTasks()" placeholder="Buscar actividad..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
-                    </div>
-                    <button onclick="clearCompleted()" class="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-500 hover:text-rose-600 transition" title="Limpiar completadas">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-            </div>
- 
-            <!-- Guided Tasks List -->
-            <div id="tasks-list" class="space-y-3 custom-scroll max-h-[600px] overflow-y-auto pr-1"></div>
- 
-        </div>
-    </main>
- 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i>
-        <span id="toast-msg">Acción realizada</span>
-    </div>
- 
-    <script>
-        // Pre-configured Professional Protocols
-        const PROTOCOLS = {
-            deepwork: [
-                {
-                    title: "Definición de la Tarea Más Importante (MIT)",
-                    category: "Trabajo",
-                    priority: "Alta",
-                    duration: 15,
-                    instructions: "Antes de abrir el correo o redes, define el único entregable que hará que tu día valga la pena.",
-                    steps: ["Cerrar pestañas de correo y mensajería", "Escribir el objetivo exacto en una frase", "Preparar solo los archivos o herramientas necesarios"]
-                },
-                {
-                    title: "Bloque de Enfoque Profundo (Sin Interrupciones)",
-                    category: "Trabajo",
-                    priority: "Alta",
-                    duration: 45,
-                    instructions: "Pon el teléfono en modo avión o en otra habitación. Trabaja de corrido en tu tarea principal sin cambiar de ventana.",
-                    steps: ["Poner celular en silencio y lejos de la vista", "Avanzar el primer borrador o estructura durante 25 min", "Completar detalles críticos y guardar avances"]
-                },
-                {
-                    title: "Auditoría Rápida de Avance",
-                    category: "Trabajo",
-                    priority: "Media",
-                    duration: 15,
-                    instructions: "Evalúa lo logrado en el bloque anterior y deja anotado el siguiente paso inmediato.",
-                    steps: ["Revisar calidad de lo producido", "Anotar pendientes derivados", "Estirar brazos y cuello durante 2 minutos"]
-                }
-            ],
-            ejecutivo: [
-                {
-                    title: "Procesamiento Rápido de Bandeja (Inbox Zero)",
-                    category: "Trabajo",
-                    priority: "Media",
-                    duration: 25,
-                    instructions: "Aplica la regla de los 2 minutos: si se responde en menos de 2 min, hazlo ahora; si no, agéndalo o archívalo.",
-                    steps: ["Archivar boletines y notificaciones automáticas", "Responder mensajes cortos urgentes (< 2 min)", "Marcar correos largos para bloque de tarde"]
-                },
-                {
-                    title: "Seguimiento de Entregables y Equipo",
-                    category: "Trabajo",
-                    priority: "Alta",
-                    duration: 20,
-                    instructions: "Revisa qué respuestas o bloqueos necesitas destrabar con clientes o colaboradores hoy.",
-                    steps: ["Revisar lista de temas esperando respuesta", "Enviar máximo 3 mensajes claros de seguimiento", "Actualizar estado de proyectos activos"]
-                },
-                {
-                    title: "Ritual de Cierre y Planificación de Mañana",
-                    category: "Trabajo",
-                    priority: "Baja",
-                    duration: 15,
-                    instructions: "No termines el día sin dejar listas las 3 prioridades de mañana para arrancar sin fricción.",
-                    steps: ["Revisar agenda de mañana por compromisos", "Elegir las 3 actividades clave del día siguiente", "Ordenar escritorio físico y cerrar pestañas"]
-                }
-            ],
-            salud: [
-                {
-                    title: "Pausa Activa de Descompresión Postural y Visual",
-                    category: "Salud",
-                    priority: "Alta",
-                    duration: 15,
-                    instructions: "Aléjate de cualquier pantalla para relajar la vista y activar la circulación sanguínea.",
-                    steps: ["Mirar un punto lejano por la ventana durante 60 segundos", "Realizar 10 rotaciones de hombros y estiramiento cervical", "Caminar 5 minutos lejos del escritorio"]
-                },
-                {
-                    title: "Protocolo de Hidratación y Recarga de Energía",
-                    category: "Salud",
-                    priority: "Media",
-                    duration: 15,
-                    instructions: "La fatiga mental suele ser deshidratación leve. Recarga agua y consume un snack ligero.",
-                    steps: ["Beber un vaso grande de agua pura (300-500 ml)", "Comer fruta o frutos secos (evitar azúcares refinados)", "Hacer 5 respiraciones profundas (inhalar 4s, exhalar 6s)"]
-                },
-                {
-                    title: "Alimentación Consciente sin Pantallas",
-                    category: "Salud",
-                    priority: "Media",
-                    duration: 45,
-                    instructions: "Dedica tu hora de comida a nutrirte con calma para evitar pesadez en la tarde.",
-                    steps: ["Dejar el teléfono fuera de la mesa", "Priorizar vegetales y proteína de calidad", "Dar una caminata breve de 10 min al terminar"]
-                }
-            ],
-            logistica: [
-                {
-                    title: "Control Exprés de Finanzas y Pagos",
-                    category: "Logística",
-                    priority: "Alta",
-                    duration: 15,
-                    instructions: "Mantén tus cuentas al día revisando movimientos recientes y servicios por vencer.",
-                    steps: ["Verificar saldo y últimos cargos bancarios", "Pagar facturas o servicios pendientes de la semana", "Registrar gastos importantes del día"]
-                },
-                {
-                    title: "Orden Rápido del Entorno (Regla de 15 Minutos)",
-                    category: "Logística",
-                    priority: "Baja",
-                    duration: 15,
-                    instructions: "Como es adentro es afuera: un espacio despejado reduce el ruido mental inmediatamente.",
-                    steps: ["Retirar tazas, vasos o papeles de la mesa de trabajo", "Organizar cables y cargadores", "Ventilar la habitación abriendo ventanas 10 minutos"]
-                },
-                {
-                    title: "Gestión de Compras, Pedidos y Vehículo/Hogar",
-                    category: "Logística",
-                    priority: "Media",
-                    duration: 25,
-                    instructions: "Agrupa tus diligencias domésticas en un solo bloque para no interrumpir tu mañana.",
-                    steps: ["Revisar faltantes de despensa o comida de la semana", "Verificar citas, mantenimientos o trámites pendientes", "Realizar pedidos necesarios en una sola tanda"]
-                }
-            ]
-        };
- 
-        const DEFAULT_TEMPLATES = {
-            "Trabajo": {
-                instructions: "Divide esta actividad en un entregable claro. Elimina distracciones durante el bloque y enfócate en terminar una primera versión funcional.",
-                steps: ["Definir el resultado exacto esperado", "Ejecutar el bloque principal sin mirar el celular", "Revisar y dar por concluido el entregable"]
-            },
-            "Salud": {
-                instructions: "Prioriza tu energía física. Desconéctate de las pantallas y realiza la actividad con atención plena en tu respiración y postura.",
-                steps: ["Preparar el espacio o hidratación", "Realizar la actividad de bienestar sin prisa", "Estirar y retomar el día renovado"]
-            },
-            "Estudio": {
-                instructions: "Usa aprendizaje activo: no solo leas o mires, toma notas con tus propias palabras y resume las ideas clave.",
-                steps: ["Leer o revisar el material principal", "Anotar 3 conceptos o aprendizajes clave", "Aplicar o resumir lo aprendido en 5 minutos"]
-            },
-            "Logística": {
-                instructions: "Resuelve este pendiente de principio a fin ahora mismo para liberarlo de tu memoria mental.",
-                steps: ["Reunir datos, documentos o contactos necesarios", "Ejecutar el trámite, pago o gestión", "Guardar comprobante o confirmar cierre"]
-            }
-        };
- 
-        let tasks = [];
-        let currentFilter = 'all';
-        let activeTaskId = null;
-        let timerInterval = null;
-        let timeLeft = 25 * 60;
-        let isTimerRunning = false;
- 
-        // Initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            initTheme();
-            const saved = localStorage.getItem('execuflow_pro_tasks');
-            if (saved) {
-                tasks = JSON.parse(saved);
-            } else {
-                generateSmartDay(true);
-            }
-            renderTasks();
-        });
- 
-        function saveTasks() {
-            localStorage.setItem('execuflow_pro_tasks', JSON.stringify(tasks));
-            updateStats();
-        }
- 
-        // Generate full balanced day
-        function generateSmartDay(silent = false) {
-            const smartSelection = [
-                PROTOCOLS.deepwork[0],
-                PROTOCOLS.deepwork[1],
-                PROTOCOLS.salud[0],
-                PROTOCOLS.ejecutivo[0],
-                PROTOCOLS.logistica[1],
-                PROTOCOLS.ejecutivo[2]
-            ];
- 
-            smartSelection.forEach(item => {
-                const exists = tasks.some(t => t.title === item.title && !t.completed);
-                if (!exists) {
-                    tasks.push({
-                        id: Date.now() + Math.random(),
-                        title: item.title,
-                        category: item.category,
-                        priority: item.priority,
-                        duration: item.duration,
-                        instructions: item.instructions,
-                        steps: item.steps.map(s => ({ text: s, done: false })),
-                        completed: false
-                    });
-                }
-            });
- 
-            saveTasks();
-            renderTasks();
-            if (!silent) showToast("✨ Día Inteligente generado con instrucciones paso a paso");
-        }
- 
-        function loadProtocol(key) {
-            const list = PROTOCOLS[key];
-            if (!list) return;
-            list.forEach(item => {
-                tasks.unshift({
-                    id: Date.now() + Math.random(),
-                    title: item.title,
-                    category: item.category,
-                    priority: item.priority,
-                    duration: item.duration,
-                    instructions: item.instructions,
-                    steps: item.steps.map(s => ({ text: s, done: false })),
-                    completed: false
-                });
-            });
-            saveTasks();
-            renderTasks();
-            showToast("📦 Protocolo profesional cargado en tu lista");
-        }
- 
-        function autoFillInstructions() {
-            const cat = document.getElementById('task-category').value;
-            const title = document.getElementById('task-title').value.trim();
-            const tpl = DEFAULT_TEMPLATES[cat] || DEFAULT_TEMPLATES["Trabajo"];
- 
-            document.getElementById('task-instructions').value = title
-                ? `Para «${title}»: ${tpl.instructions}`
-                : tpl.instructions;
-            document.getElementById('task-steps').value = tpl.steps.join(', ');
-            showToast("🪄 Instrucciones y pasos generados automáticamente");
-        }
- 
-        function addCustomTask(e) {
-            e.preventDefault();
-            const title = document.getElementById('task-title').value.trim();
-            const category = document.getElementById('task-category').value;
-            const priority = document.getElementById('task-priority').value;
-            const duration = parseInt(document.getElementById('task-duration').value, 10);
-            let instructions = document.getElementById('task-instructions').value.trim();
-            let stepsRaw = document.getElementById('task-steps').value.trim();
- 
-            const tpl = DEFAULT_TEMPLATES[category];
-            if (!instructions) instructions = tpl.instructions;
-            const stepsArray = stepsRaw
-                ? stepsRaw.split(',').map(s => s.trim()).filter(Boolean)
-                : tpl.steps;
- 
-            const newTask = {
-                id: Date.now(),
-                title,
-                category,
-                priority,
-                duration,
-                instructions,
-                steps: stepsArray.map(s => ({ text: s, done: false })),
-                completed: false
-            };
- 
-            tasks.unshift(newTask);
-            saveTasks();
-            renderTasks();
-            e.target.reset();
-            showToast("✅ Actividad agregada con su guía de ejecución");
-        }
- 
-        // Autopilot / Focus Panel
-        function startAutopilot(specificId = null) {
-            const priorityOrder = { 'Alta': 1, 'Media': 2, 'Baja': 3 };
-            let targetTask = null;
- 
-            if (specificId) {
-                targetTask = tasks.find(t => t.id === specificId);
-            } else {
-                const pending = tasks.filter(t => !t.completed).sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
-                targetTask = pending[0];
-            }
- 
-            if (!targetTask) {
-                showToast("🎉 ¡No tienes actividades pendientes! Genera un Día Inteligente.");
-                return;
-            }
- 
-            activeTaskId = targetTask.id;
-            document.getElementById('focus-category').textContent = `${targetTask.category} • PRIORIDAD ${targetTask.priority.toUpperCase()}`;
-            document.getElementById('focus-title').textContent = targetTask.title;
-            document.getElementById('focus-desc').textContent = targetTask.instructions;
-            document.getElementById('complete-focus-btn').classList.remove('hidden');
- 
-            renderFocusSteps(targetTask);
- 
-            // Configure timer
-            pauseTimer();
-            timeLeft = (targetTask.duration || 25) * 60;
-            updateTimerDisplay();
-            renderTasks();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
- 
-        function renderFocusSteps(task) {
-            const container = document.getElementById('focus-steps-container');
-            const listEl = document.getElementById('focus-steps-list');
-            if (!task.steps || task.steps.length === 0) {
-                container.classList.add('hidden');
-                return;
-            }
-            container.classList.remove('hidden');
-            listEl.innerHTML = task.steps.map((step, idx) => `
-                <label class="flex items-start gap-2.5 cursor-pointer p-1.5 rounded-lg hover:bg-white/10 transition">
-                    <input type="checkbox" ${step.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${idx})" class="mt-1 rounded text-emerald-500 focus:ring-0">
-                    <span class="${step.done ? 'line-through text-indigo-200/60' : 'text-white'}">${step.text}</span>
-                </label>
-            `).join('');
-        }
- 
-        function toggleSubstep(taskId, stepIdx) {
-            const task = tasks.find(t => t.id === taskId);
-            if (!task) return;
-            task.steps[stepIdx].done = !task.steps[stepIdx].done;
-            saveTasks();
-            if (activeTaskId === taskId) renderFocusSteps(task);
-            renderTasks();
-        }
- 
-        function completeFocusedTask() {
-            if (!activeTaskId) return;
-            const task = tasks.find(t => t.id === activeTaskId);
-            if (task) {
-                task.completed = true;
-                task.steps.forEach(s => s.done = true);
-                saveTasks();
-                showToast("🏆 ¡Excelente! Actividad completada.");
-            }
-            const remaining = tasks.filter(t => !t.completed);
-            if (remaining.length > 0) {
-                startAutopilot();
-            } else {
-                activeTaskId = null;
-                pauseTimer();
-                document.getElementById('focus-title').textContent = "🎉 ¡Día Completado con Éxito!";
-                document.getElementById('focus-desc').textContent = "Has terminado todas las actividades programadas. Descansa o carga un nuevo protocolo.";
-                document.getElementById('focus-steps-container').classList.add('hidden');
-                document.getElementById('complete-focus-btn').classList.add('hidden');
-                renderTasks();
-            }
-        }
- 
-        // Timer Functions
-        function updateTimerDisplay() {
-            const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
-            const s = String(timeLeft % 60).padStart(2, '0');
-            document.getElementById('timer-display').textContent = `${m}:${s}`;
-        }
- 
-        function toggleTimer() {
-            if (isTimerRunning) {
-                pauseTimer();
-            } else {
-                isTimerRunning = true;
-                document.getElementById('timer-btn').innerHTML = `<i class="fa-solid fa-pause mr-1"></i> Pausar`;
-                timerInterval = setInterval(() => {
-                    if (timeLeft > 0) {
-                        timeLeft--;
-                        updateTimerDisplay();
-                    } else {
-                        pauseTimer();
-                        playBeep();
-                        showToast("⏰ ¡Tiempo del bloque terminado!");
-                    }
-                }, 1000);
-            }
-        }
- 
-        function pauseTimer() {
-            isTimerRunning = false;
-            clearInterval(timerInterval);
-            const btn = document.getElementById('timer-btn');
-            if (btn) btn.innerHTML = `<i class="fa-solid fa-play mr-1"></i> Iniciar`;
-        }
- 
-        function resetTimer() {
-            pauseTimer();
-            const task = tasks.find(t => t.id === activeTaskId);
-            timeLeft = ((task && task.duration) ? task.duration : 25) * 60;
-            updateTimerDisplay();
-        }
- 
-        function playBeep() {
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(660, ctx.currentTime);
-                gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.4);
-            } catch (e) {}
-        }
- 
-        // Task Operations & Rendering
-        function toggleTaskStatus(id) {
-            const task = tasks.find(t => t.id === id);
-            if (!task) return;
-            task.completed = !task.completed;
-            saveTasks();
-            renderTasks();
-        }
- 
-        function deleteTask(id) {
-            tasks = tasks.filter(t => t.id !== id);
-            if (activeTaskId === id) activeTaskId = null;
-            saveTasks();
-            renderTasks();
-        }
- 
-        function clearCompleted() {
-            tasks = tasks.filter(t => !t.completed);
-            saveTasks();
-            renderTasks();
-            showToast("🧹 Actividades completadas eliminadas");
-        }
- 
-        function setFilter(f) {
-            currentFilter = f;
-            ['all', 'pending', 'completed'].forEach(k => {
-                const btn = document.getElementById(`filter-${k}`);
-                if (k === f) {
-                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition";
-                } else {
-                    btn.className = "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition";
-                }
-            });
-            renderTasks();
-        }
- 
-        function updateStats() {
-            const total = tasks.length;
-            const completed = tasks.filter(t => t.completed).length;
-            const pending = total - completed;
-            const totalMinutes = tasks.filter(t => !t.completed).reduce((acc, t) => acc + (t.duration || 25), 0);
-            const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
- 
-            document.getElementById('stat-pending').textContent = pending;
-            document.getElementById('stat-completed').textContent = completed;
-            document.getElementById('stat-time').textContent = `${totalMinutes}m`;
-            document.getElementById('progress-text').textContent = `${pct}%`;
-            document.getElementById('progress-bar').style.width = `${pct}%`;
-        }
- 
-        function renderTasks() {
-            updateStats();
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const container = document.getElementById('tasks-list');
- 
-            const filtered = tasks.filter(t => {
-                if (currentFilter === 'pending' && t.completed) return false;
-                if (currentFilter === 'completed' && !t.completed) return false;
-                if (query && !t.title.toLowerCase().includes(query) && !t.category.toLowerCase().includes(query)) return false;
-                return true;
-            });
- 
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center border border-dashed border-slate-300 dark:border-slate-700">
-                        <i class="fa-solid fa-clipboard-check text-3xl text-slate-400 mb-2"></i>
-                        <p class="font-semibold text-sm">No hay actividades en esta vista</p>
-                        <p class="text-xs text-slate-500 mt-1">Usa el botón «Generar Día Inteligente» arriba para armar tu rutina.</p>
-                    </div>
-                `;
-                return;
-            }
- 
-            const priorityBadge = {
-                'Alta': 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
-                'Media': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
-                'Baja': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'
-            };
- 
-            container.innerHTML = filtered.map(task => {
-                const isFocused = task.id === activeTaskId;
-                const stepsDone = task.steps ? task.steps.filter(s => s.done).length : 0;
-                const totalSteps = task.steps ? task.steps.length : 0;
- 
-                return `
-                <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border ${isFocused ? 'border-2 border-brand-500 ring-2 ring-brand-500/20' : 'border-slate-200 dark:border-slate-700'} shadow-sm transition">
-                    <div class="flex items-start justify-between gap-3">
-                        <div class="flex items-start gap-3 flex-1">
-                            <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus(${task.id})" class="mt-1 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 cursor-pointer">
-                            <div class="flex-1">
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">${task.category}</span>
-                                    <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md ${priorityBadge[task.priority] || ''}">${task.priority}</span>
-                                    <span class="text-[11px] text-slate-400"><i class="fa-regular fa-clock mr-1"></i>${task.duration} min</span>
-                                    ${totalSteps > 0 ? `<span class="text-[11px] text-brand-600 dark:text-brand-400 font-medium"><i class="fa-solid fa-list-check mr-1"></i>${stepsDone}/${totalSteps} pasos</span>` : ''}
-                                </div>
-                                <h4 class="font-bold text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-100'}">${task.title}</h4>
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">${task.instructions}</p>
- 
-                                ${task.steps && task.steps.length > 0 ? `
-                                <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 space-y-1.5">
-                                    ${task.steps.map((st, sIdx) => `
-                                        <label class="flex items-center gap-2 text-xs cursor-pointer text-slate-600 dark:text-slate-300 hover:text-brand-600">
-                                            <input type="checkbox" ${st.done ? 'checked' : ''} onchange="toggleSubstep(${task.id}, ${sIdx})" class="rounded text-brand-600 focus:ring-0 w-3.5 h-3.5">
-                                            <span class="${st.done ? 'line-through text-slate-400' : ''}">${st.text}</span>
-                                        </label>
-                                    `).join('')}
-                                </div>
-                                ` : ''}
-                            </div>
-                        </div>
- 
-                        <div class="flex items-center gap-1.5">
-                            ${!task.completed ? `
-                            <button onclick="startAutopilot(${task.id})" class="px-2.5 py-1.5 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white text-xs font-semibold transition flex items-center gap-1" title="Enfocarme en esta actividad">
-                                <i class="fa-solid fa-crosshairs"></i> Guiarme
-                            </button>
-                            ` : ''}
-                            <button onclick="deleteTask(${task.id})" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-slate-700 transition" title="Eliminar">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }).join('');
-        }
- 
-        // Theme Toggle
-        function initTheme() {
-            if (localStorage.getItem('execuflow_theme') === 'dark') {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-icon').className = 'fa-solid fa-sun';
-            }
-        }
- 
-        function toggleTheme() {
-            const html = document.documentElement;
-            const isDark = html.classList.toggle('dark');
-            localStorage.setItem('execuflow_theme', isDark ? 'dark' : 'light');
-            document.getElementById('theme-icon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-        }
- 
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-msg').textContent = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-    </script>
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md">
+                    <i class="fa-solid fa-bolt-lightning text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-slate-900">ExecuFlow <span class="text-indigo-600">Pro</span></h1>
+                    <p class="text-xs text-slate-500">Asistente Ejecutivo de Actividades Guiadas</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="generateSmartDay()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3.5 py-2 rounded-xl shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span class="hidden sm:inline">Generar Día Inteligente</span>
+                </button>
+                <button onclick="startAutopilot()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-play"></i>
+                    <span>¿Qué hago ahora?</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+
+        <!-- Left Column (5 cols) -->
+        <div class="md:col-span-5 space-y-6">
+
+            <!-- Active Focus Panel -->
+            <div class="bg-gradient-to-br from-indigo-600 to-indigo-900 rounded-2xl p-6 text-white shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        MODO PILOTO AUTOMÁTICO
+                    </span>
+                    <span id="focus-category" class="text-xs font-medium text-indigo-200 uppercase">Listo</span>
+                </div>
+
+                <h2 id="focus-title" class="text-xl font-bold mb-2">Presiona «¿Qué hago ahora?»</h2>
+                <p id="focus-desc" class="text-sm text-indigo-100 mb-5 leading-relaxed">
+                    El sistema seleccionará automáticamente tu actividad más importante y te guiará paso a paso.
+                </p>
+
+                <div id="focus-steps-container" class="hidden bg-black/20 rounded-xl p-4 mb-5">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-200 mb-2.5">
+                        <i class="fa-solid fa-list-check"></i> Instrucciones paso a paso:
+                    </h4>
+                    <div id="focus-steps-list" class="space-y-2 text-sm"></div>
+                </div>
+
+                <div class="flex items-center justify-between pt-2 border-t border-white/15">
+                    <div class="flex items-center gap-3">
+                        <div class="text-3xl font-mono font-bold" id="timer-display">25:00</div>
+                        <button onclick="toggleTimer()" id="timer-btn" class="px-3 py-1.5 rounded-lg bg-white text-indigo-700 font-semibold text-xs hover:bg-slate-100 transition">
+                            <i class="fa-solid fa-play mr-1"></i> Iniciar
+                        </button>
+                    </div>
+                    <button id="complete-focus-btn" onclick="completeFocusedTask()" class="hidden px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs transition">
+                        Terminar y Siguiente
+                    </button>
+                </div>
+            </div>
+
+            <!-- Protocols Catalog -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+                <h3 class="font-bold text-sm text-slate-900 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-indigo-600"></i> Protocolos Profesionales
+                </h3>
+                <div class="grid grid-cols-2 gap-2.5">
+                    <button onclick="loadProtocol('deepwork')" class="text-left p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 transition">
+                        <p class="font-semibold text-xs text-slate-900">🚀 Deep Work</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Enfoque profundo</p>
+                    </button>
+                    <button onclick="loadProtocol('ejecutivo')" class="text-left p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 transition">
+                        <p class="font-semibold text-xs text-slate-900">💼 Cierre Ejecutivo</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Inbox y pendientes</p>
+                    </button>
+                    <button onclick="loadProtocol('salud')" class="text-left p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 transition">
+                        <p class="font-semibold text-xs text-slate-900">🌿 Bienestar</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Pausas y energía</p>
+                    </button>
+                    <button onclick="loadProtocol('logistica')" class="text-left p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 transition">
+                        <p class="font-semibold text-xs text-slate-900">🏠 Logística</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Orden y pagos</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Add Custom Task -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-indigo-600"></i> Crear Actividad
+                    </h3>
+                    <button type="button" onclick="autoFillInstructions()" class="text-xs font-semibold text-indigo-600 hover:underline">
+                        <i class="fa-solid fa-wand-sparkles"></i> Autocompletar
+                    </button>
+                </div>
+
+                <form id="task-form" onsubmit="addCustomTask(event)" class="space-y-3">
+                    <input type="text" id="task-title" required placeholder="Ej: Redactar reporte..." class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                    
+                    <div class="grid grid-cols-3 gap-2">
+                        <select id="task-category" class="px-2 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs">
+                            <option value="Trabajo">💼 Trabajo</option>
+                            <option value="Salud">🌿 Salud</option>
+                            <option value="Estudio">📚 Estudio</option>
+                            <option value="Logística">🏠 Logística</option>
+                        </select>
+                        <select id="task-priority" class="px-2 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs">
+                            <option value="Alta">🔥 Alta</option>
+                            <option value="Media" selected>⚡ Media</option>
+                            <option value="Baja">🌱 Baja</option>
+                        </select>
+                        <select id="task-duration" class="px-2 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs">
+                            <option value="15">15 min</option>
+                            <option value="25" selected>25 min</option>
+                            <option value="45">45 min</option>
+                        </select>
+                    </div>
+
+                    <textarea id="task-instructions" rows="2" placeholder="Instrucción experta..." class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs outline-none"></textarea>
+                    <input type="text" id="task-steps" placeholder="Pasos separados por coma (Ej: Paso 1, Paso 2)" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs outline-none">
+
+                    <button type="submit" class="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl transition">
+                        Agregar a mi Ruta
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column (7 cols) -->
+        <div class="md:col-span-7 space-y-6">
+
+            <!-- Metrics & Progress -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <p class="text-xs text-slate-500">Pendientes</p>
+                        <p id="stat-pending" class="text-xl font-bold text-slate-900">0</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <p class="text-xs text-slate-500">Completadas</p>
+                        <p id="stat-completed" class="text-xl font-bold text-emerald-600">0</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <p class="text-xs text-slate-500">Tiempo Est.</p>
+                        <p id="stat-time" class="text-xl font-bold text-indigo-600">0m</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-xs font-medium mb-1.5">
+                        <span class="text-slate-600">Progreso Diario</span>
+                        <span id="progress-text" class="text-indigo-600 font-bold">0%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-indigo-600 transition-all duration-500 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="flex flex-col sm:flex-row gap-2 items-center justify-between">
+                <div class="flex bg-white p-1 rounded-xl border border-slate-200 w-full sm:w-auto">
+                    <button onclick="setFilter('all')" id="filter-all" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition">Todas</button>
+                    <button onclick="setFilter('pending')" id="filter-pending" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">Por hacer</button>
+                    <button onclick="setFilter('completed')" id="filter-completed" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">Hechas</button>
+                </div>
+                <div class="relative w-full sm:w-56">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="search-input" oninput="renderTasks()" placeholder="Buscar..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 bg-white text-xs outline-none">
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div id="tasks-list" class="space-y-3 custom-scroll max-h-[500px] overflow-y-auto pr-1"></div>
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl text-xs font-semibold flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-msg">Listo</span>
+    </div>
+
+    <script>
+        const PROTOCOLS = {
+            deepwork: [
+                { title: "Definición de Tarea Principal (MIT)", category: "Trabajo", priority: "Alta", duration: 15, instructions: "Define el único entregable clave de hoy.", steps: ["Cerrar pestañas distractoras", "Escribir el objetivo exacto", "Preparar herramientas"] },
+                { title: "Bloque de Enfoque Profundo", category: "Trabajo", priority: "Alta", duration: 45, instructions: "Trabaja sin interrupciones ni cambios de ventana.", steps: ["Celular en silencio", "Avanzar borrador principal", "Completar detalles críticos"] }
+            ],
+            ejecutivo: [
+                { title: "Inbox Zero y Respuestas Rápidas", category: "Trabajo", priority: "Media", duration: 25, instructions: "Aplica regla de 2 minutos para correos o mensajes.", steps: ["Archivar boletines", "Responder urgentes (< 2 min)", "Agendar pendientes largos"] },
+                { title: "Planificación de Mañana", category: "Trabajo", priority: "Baja", duration: 15, instructions: "Deja listas tus 3 prioridades para mañana.", steps: ["Revisar agenda", "Elegir prioridades", "Ordenar escritorio"] }
+            ],
+            salud: [
+                { title: "Pausa Activa Visual y Postural", category: "Salud", priority: "Alta", duration: 15, instructions: "Aléjate de la pantalla para relajar la vista.", steps: ["Mirar a lo lejos 60s", "Rotación de hombros", "Caminar 5 min"] }
+            ],
+            logistica: [
+                { title: "Control Exprés de Finanzas y Pagos", category: "Logística", priority: "Alta", duration: 15, instructions: "Revisa cuentas y servicios por vencer.", steps: ["Verificar cargos bancarios", "Pagar facturas pendientes", "Registrar gastos"] }
+            ]
+        };
+
+        let tasks = [];
+        let currentFilter = 'all';
+        let activeTaskId = null;
+        let timerInterval = null;
+        let timeLeft = 25 * 60;
+        let isTimerRunning = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('execuflow_pro_tasks');
+            if (saved) tasks = JSON.parse(saved);
+            else generateSmartDay(true);
+            renderTasks();
+        });
+
+        function saveTasks() {
+            localStorage.setItem('execuflow_pro_tasks', JSON.stringify(tasks));
+            updateStats();
+        }
+
+        function generateSmartDay(silent = false) {
+            const smartSelection = [PROTOCOLS.deepwork[0], PROTOCOLS.deepwork[1], PROTOCOLS.salud[0], PROTOCOLS.ejecutivo[0], PROTOCOLS.logistica[0]];
+            smartSelection.forEach(item => {
+                if (!tasks.some(t => t.title === item.title && !t.completed)) {
+                    tasks.push({
+                        id: Date.now() + Math.random(),
+                        title: item.title,
+                        category: item.category,
+                        priority: item.priority,
+                        duration: item.duration,
+                        instructions: item.instructions,
+                        steps: item.steps.map(s => ({ text: s, done: false })),
+                        completed: false
+                    });
+                }
+            });
+            saveTasks();
+            renderTasks();
+            if (!silent) showToast("✨ Día Inteligente generado");
+        }
+
+        function loadProtocol(key) {
+            const list = PROTOCOLS[key];
+            if (!list) return;
+            list.forEach(item => {
+                tasks.unshift({
+                    id: Date.now() + Math.random(),
+                    title: item.title,
+                    category: item.category,
+                    priority: item.priority,
+                    duration: item.duration,
+                    instructions: item.instructions,
+                    steps: item.steps.map(s => ({ text: s, done: false })),
+                    completed: false
+                });
+            });
+            saveTasks();
+            renderTasks();
+            showToast("📦 Protocolo cargado");
+        }
+
+        function autoFillInstructions() {
+            document.getElementById('task-instructions').value = "Realiza esta actividad con enfoque estructurado.";
+            document.getElementById('task-steps').value = "Definir objetivo, Ejecutar bloque, Revisar resultado";
+            showToast("🪄 Autocompletado aplicado");
+        }
+
+        function addCustomTask(e) {
+            e.preventDefault();
+            const title = document.getElementById('task-title').value.trim();
+            const category = document.getElementById('task-category').value;
+            const priority = document.getElementById('task-priority').value;
+            const duration = parseInt(document.getElementById('task-duration').value, 10);
+            const instructions = document.getElementById('task-instructions').value.trim() || "Ejecutar con atención plena.";
+            const stepsRaw = document.getElementById('task-steps').value.trim();
+            const stepsArray = stepsRaw ? stepsRaw.split(',').map(s => s.trim()).filter(Boolean) : ["Iniciar tarea", "Completar entregable"];
+
+            tasks.unshift({
+                id: Date.now(),
+                title, category, priority, duration, instructions,
+                steps: stepsArray.map(s => ({ text: s, done: false })),
+                completed: false
+            });
+            saveTasks();
+            renderTasks();
+            e.target.reset();
+            showToast("✅ Actividad agregada");
+        }
+
+        function startAutopilot(specificId = null) {
+            const priorityOrder = { 'Alta': 1, 'Media': 2, 'Baja': 3 };
+            let targetTask = specificId ? tasks.find(t => t.id === specificId) : tasks.filter(t => !t.completed).sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority])[0];
+
+            if (!targetTask) {
+                showToast("🎉 ¡No hay pendientes!");
+                return;
+            }
+
+            activeTaskId = targetTask.id;
+            document.getElementById('focus-category').textContent = `${targetTask.category} • ${targetTask.priority}`;
+            document.getElementById('focus-title').textContent = targetTask.title;
+            document.getElementById('focus-desc').textContent = targetTask.instructions;
+            document.getElementById('complete-focus-btn').classList.remove('hidden');
+
+            const container = document.getElementById('focus-steps-container');
+            const listEl = document.getElementById('focus-steps-list');
+            if (targetTask.steps && targetTask.steps.length > 0) {
+                container.classList.remove('hidden');
+                listEl.innerHTML = targetTask.steps.map((step, idx) => `
+                    <label class="flex items-center gap-2 cursor-pointer p-1 rounded hover:bg-white/10">
+                        <input type="checkbox" ${step.done ? 'checked' : ''} onchange="toggleSubstep(${targetTask.id}, ${idx})" class="rounded text-emerald-500">
+                        <span class="${step.done ? 'line-through text-indigo-200/60' : 'text-white'}">${step.text}</span>
+                    </label>
+                `).join('');
+            } else {
+                container.classList.add('hidden');
+            }
+
+            pauseTimer();
+            timeLeft = targetTask.duration * 60;
+            updateTimerDisplay();
+            renderTasks();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleSubstep(taskId, stepIdx) {
+            const task = tasks.find(t => t.id === taskId);
+            if (!task) return;
+            task.steps[stepIdx].done = !task.steps[stepIdx].done;
+            saveTasks();
+            if (activeTaskId === taskId) startAutopilot(taskId);
+            renderTasks();
+        }
+
+        function completeFocusedTask() {
+            if (!activeTaskId) return;
+            const task = tasks.find(t => t.id === activeTaskId);
+            if (task) {
+                task.completed = true;
+                task.steps.forEach(s => s.done = true);
+                saveTasks();
+                showToast("🏆 Actividad completada");
+            }
+            startAutopilot();
+        }
+
+        function updateTimerDisplay() {
+            const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+            const s = String(timeLeft % 60).padStart(2, '0');
+            document.getElementById('timer-display').textContent = `${m}:${s}`;
+        }
+
+        function toggleTimer() {
+            if (isTimerRunning) {
+                pauseTimer();
+            } else {
+                isTimerRunning = true;
+                document.getElementById('timer-btn').innerHTML = `<i class="fa-solid fa-pause mr-1"></i> Pausar`;
+                timerInterval = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateTimerDisplay();
+                    } else {
+                        pauseTimer();
+                        showToast("⏰ ¡Tiempo terminado!");
+                    }
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            isTimerRunning = false;
+            clearInterval(timerInterval);
+            const btn = document.getElementById('timer-btn');
+            if (btn) btn.innerHTML = `<i class="fa-solid fa-play mr-1"></i> Iniciar`;
+        }
+
+        function toggleTaskStatus(id) {
+            const task = tasks.find(t => t.id === id);
+            if (!task) return;
+            task.completed = !task.completed;
+            saveTasks();
+            renderTasks();
+        }
+
+        function deleteTask(id) {
+            tasks = tasks.filter(t => t.id !== id);
+            if (activeTaskId === id) activeTaskId = null;
+            saveTasks();
+            renderTasks();
+        }
+
+        function setFilter(f) {
+            currentFilter = f;
+            ['all', 'pending', 'completed'].forEach(k => {
+                const btn = document.getElementById(`filter-${k}`);
+                btn.className = k === f ? "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition" : "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition";
+            });
+            renderTasks();
+        }
+
+        function updateStats() {
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const pending = total - completed;
+            const totalMinutes = tasks.filter(t => !t.completed).reduce((acc, t) => acc + (t.duration || 25), 0);
+            const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+            document.getElementById('stat-pending').textContent = pending;
+            document.getElementById('stat-completed').textContent = completed;
+            document.getElementById('stat-time').textContent = `${totalMinutes}m`;
+            document.getElementById('progress-text').textContent = `${pct}%`;
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        function renderTasks() {
+            updateStats();
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const container = document.getElementById('tasks-list');
+
+            const filtered = tasks.filter(t => {
+                if (currentFilter === 'pending' && t.completed) return false;
+                if (currentFilter === 'completed' && !t.completed) return false;
+                if (query && !t.title.toLowerCase().includes(query)) return false;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="bg-white rounded-2xl p-6 text-center border border-dashed border-slate-300 text-xs text-slate-500">No hay actividades en esta vista.</div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(task => `
+                <div class="bg-white rounded-2xl p-4 border ${task.id === activeTaskId ? 'border-indigo-600 ring-2 ring-indigo-100' : 'border-slate-200'} shadow-sm">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3 flex-1">
+                            <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus(${task.id})" class="mt-1 w-4 h-4 rounded text-indigo-600 cursor-pointer">
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-600">${task.category}</span>
+                                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700">${task.priority}</span>
+                                    <span class="text-[10px] text-slate-400">${task.duration} min</span>
+                                </div>
+                                <h4 class="font-bold text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-900'}">${task.title}</h4>
+                                <p class="text-xs text-slate-500 mt-1">${task.instructions}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            ${!task.completed ? `<button onclick="startAutopilot(${task.id})" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white text-xs font-semibold transition">Guiarme</button>` : ''}
+                            <button onclick="deleteTask(${task.id})" class="p-1 text-slate-400 hover:text-rose-500"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+    </script>
 </body>
 </html>
